@@ -16,14 +16,13 @@ import io.vertx.ext.web.RoutingContext;
 
 public class GetWorkspaceHandler implements Handler<RoutingContext> {
 	
-	private static final String GET_RESPONSE = getResponse();
 	private static final String pathToJSONResponse = "src/main/resources/CreateWorkspaceResponse.json";
 	
 	@Override
 	public void handle(RoutingContext routingContext) {
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
-		response.write(GET_RESPONSE);
+		response.write(getResponse());
 		response.end();
 	}
 

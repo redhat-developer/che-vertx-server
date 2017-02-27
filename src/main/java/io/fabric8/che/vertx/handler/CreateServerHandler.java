@@ -17,7 +17,6 @@ import io.vertx.ext.web.RoutingContext;
 
 public class CreateServerHandler implements Handler<RoutingContext> {
 	
-	private static final String CREATE_RESPONSE = getResponse();
 	private static final String pathToJSONResponse = "";
 	
 	@Override
@@ -26,7 +25,7 @@ public class CreateServerHandler implements Handler<RoutingContext> {
 		// TODO process request
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
-		response.write(CREATE_RESPONSE);
+		response.write(getResponse());
 		response.end();
 	}
 
