@@ -1,0 +1,84 @@
+[{
+	"tags": [
+		"Java",
+		"Vert.x",
+		"Maven",
+		"Centos",
+		"Git"
+	],
+	"workspaceConfig": {
+		"commands": [
+			{
+				"commandLine": "scl enable rh-maven33 'mvn clean install -f ${current.project.path}'",
+				"name": "build",
+				"type": "custom"
+			},
+			{
+				"commandLine": "cd ${current.project.path} && scl enable rh-maven33 'mvn clean verify -f ${current.project.path}''",
+				"name": "verify",
+				"type": "custom"
+			}
+		],
+		"projects": [],
+		"defaultEnv": "default",
+		"name": "{ws.name}",
+		"environments": {
+			"default": {
+				"machines": {
+					"dev-machine": {
+						"agents": [
+							"org.eclipse.che.terminal",
+							"org.eclipse.che.ws-agent",
+							"org.eclipse.che.ssh"
+						],
+						"servers": {
+							
+						},
+						"attributes": {
+							"memoryLimitBytes": "2147483648"
+						}
+					}
+				},
+				"recipe": {
+					"location": "mlabuda/vertx-stack",
+					"type": "dockerimage"
+				}
+			}
+		},
+		"links": []
+	},
+	"components": [
+		{
+			"version": "1.8.0",
+			"name": "JDK"
+		},
+		{
+			"version": "3.3.3",
+			"name": "Maven"
+		}
+	],
+	"creator": "ide",
+	"scope": "general",
+	"description": "Vert.x Stack with JDK 8 and Maven.",
+	"source": {
+		"origin": "mlabuda/vertx-stack",
+		"type": "image"
+	},
+	"name": "{stack.name}",
+	"id": "{stack.id}",
+	"links": [
+		{
+			"href": "{che.server.url}/wsmaster/api/stack/{stack.id}",
+			"rel": "remove stack",
+			"method": "DELETE",
+			"parameters": []
+		},
+		{
+			"produces": "application/json",
+			"href": "{che.server.url}/wsmaster/api/stack/{stack.id}",
+			"rel": "get stack by id",
+			"method": "GET",
+			"parameters": []
+		}
+	]
+}]

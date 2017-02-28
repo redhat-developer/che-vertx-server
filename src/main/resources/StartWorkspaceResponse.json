@@ -1,0 +1,126 @@
+{
+  "attributes": {
+    "updated": "1488280307806",
+    "created": "1488274767445",
+    "stackId": "{stack.id}"
+  },
+  "namespace": "{openshift.project}",
+  "temporary": false,
+  "id": "{ws.id}",
+  "status": "STARTING",
+  "runtime": {
+    "machines": [],
+    "activeEnv": "default",
+    "links": []
+  },
+  "config": {
+    "environments": {
+      "default": {
+        "machines": {
+          "dev-machine": {
+            "attributes": {
+              "memoryLimitBytes": "2147483648"
+            },
+            "servers": {},
+            "agents": [
+              "org.eclipse.che.terminal",
+              "org.eclipse.che.ws-agent",
+              "org.eclipse.che.ssh"
+            ]
+          }
+        },
+        "recipe": {
+          "location": "eclipse/ubuntu_jdk8",
+          "type": "dockerimage"
+        }
+      }
+    },
+    "defaultEnv": "default",
+    "projects": [
+      {
+        "links": [],
+        "name": "vertx-che",
+        "attributes": {},
+        "type": "maven",
+        "source": {
+          "location": "https://github.com/mlabuda/vertx-with-che.git",
+          "type": "git",
+          "parameters": {}
+        },
+        "path": "/vertx-with-che",
+        "description": "https://github.com/mlabuda/vertx-with-che.git#master",
+        "problems": [],
+        "mixins": []
+      }
+    ],
+    "name": "{ws.name}",
+    "commands": [
+      {
+        "commandLine": "mvn clean install -f ${current.project.path}",
+        "name": "build",
+        "attributes": {},
+        "type": "mvn"
+      },
+      {
+        "commandLine": "mvn -f /projects/console-java-simple clean install",
+        "name": "console-java-simple: build",
+        "attributes": {
+          "previewUrl": ""
+        },
+        "type": "mvn"
+      },
+      {
+        "commandLine": "mvn -f /projects/console-java-simple clean install && java -jar /projects/console-java-simple/target/*.jar",
+        "name": "console-java-simple: run",
+        "attributes": {
+          "previewUrl": ""
+        },
+        "type": "mvn"
+      }
+    ],
+    "links": []
+  },
+  "links": [
+    {
+      "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}",
+      "parameters": [],
+      "rel": "self link",
+      "method": "GET"
+    },
+    {
+      "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}/runtime",
+      "parameters": [],
+      "rel": "start workspace",
+      "method": "POST",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}",
+      "parameters": [],
+      "rel": "remove workspace",
+      "method": "DELETE",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/wsmaster/api/workspace",
+      "parameters": [],
+      "rel": "get all user workspaces",
+      "method": "GET",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}/snapshot",
+      "parameters": [],
+      "rel": "get workspace snapshot",
+      "method": "GET",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/che/{ws.name}",
+      "parameters": [],
+      "rel": "ide url",
+      "method": "GET",
+      "produces": "text/html"
+    }
+  ]
+}

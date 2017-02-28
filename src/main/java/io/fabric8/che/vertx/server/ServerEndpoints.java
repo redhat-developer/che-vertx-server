@@ -8,19 +8,17 @@
  * Contributors: 
  * Red Hat, Inc. - initial API and implementation 
  ******************************************************************************/
-package io.fabric8.che.vertx.handler;
+package io.fabric8.che.vertx.server;
 
 import io.fabric8.che.vertx.constant.Constants;
-import io.vertx.core.http.HttpServerResponse;
-import io.vertx.ext.web.RoutingContext;
 
-public class OpenShiftHandler extends AbstractHandler {
+public class ServerEndpoints {
 	
-	@Override
-	public void handle(RoutingContext routingContext) {
-		HttpServerResponse response = routingContext.response();
-		response.putHeader("Content-Type", "application/json").setChunked(true);
-		response.write(getResponse(Constants.GET_ROUTE_RESPONSE_PATH));
-		response.end();
-	}
+	public static final String SERVER = "/api/server";
+	public static final String STACK = "/api/stack";
+	public static final String WORKSPACE = "/api/workspace";
+	public static final String OPENSHIFT = "/oapi/*";
+	
+	public static final String START_WORKSPACE = "/api/workspace/" + Constants.WORKSPACE_ID + "/runtime";
+
 }

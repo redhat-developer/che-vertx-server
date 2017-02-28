@@ -16,8 +16,8 @@
               "keepVcs": "true"
             }
           },
-          "name": "vertx-with-che",
-          "type": "blank",
+          "name": "vertx-che",
+          "type": "maven",
           "path": "/vertx-with-che",
           "attributes": {}
         }
@@ -44,97 +44,59 @@
           }
         }
       },
-      "name": "ws1799548173",
+      "name": "{ws.name}",
       "links": []
     },
     "temporary": false,
-    "namespace": "che",
-    "status": "RUNNING",
-    "id": "workspaces1jjpxugg9t8gox0",
+    "namespace": "{openshift.project}",
+    "name" : "{ws.name}",
+    "status": "STARTING",
+    "id": "{ws.id}",
     "attributes": {
       "updated": "1487858315789",
       "created": "1487858231441"
     },
     "links": [
       {
-        "href": "http://che.openshift.mini/wsmaster/api/workspace/workspaces1jjpxugg9t8gox0",
+        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}",
         "rel": "self link",
         "method": "GET",
         "parameters": []
       },
       {
         "produces": "application/json",
-        "href": "http://che.openshift.mini/wsmaster/api/workspace/workspaces1jjpxugg9t8gox0/runtime",
+        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}/runtime",
         "rel": "start workspace",
         "method": "POST",
         "parameters": []
       },
       {
         "produces": "application/json",
-        "href": "http://che.openshift.mini/wsmaster/api/workspace/workspaces1jjpxugg9t8gox0",
+        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}",
         "rel": "remove workspace",
         "method": "DELETE",
         "parameters": []
       },
       {
         "produces": "application/json",
-        "href": "http://che.openshift.mini/wsmaster/api/workspace",
+        "href": "{che.server.url}/wsmaster/api/workspace",
         "rel": "get all user workspaces",
         "method": "GET",
         "parameters": []
       },
       {
         "produces": "application/json",
-        "href": "http://che.openshift.mini/wsmaster/api/workspace/workspaces1jjpxugg9t8gox0/snapshot",
+        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}/snapshot",
         "rel": "get workspace snapshot",
         "method": "GET",
         "parameters": []
       },
       {
         "produces": "text/html",
-        "href": "http://che.openshift.mini/che/ws1799548173",
+        "href": "{che.server.url}/che/{ws.name}",
         "rel": "ide url",
         "method": "GET",
         "parameters": []
-      },
-      {
-        "href": "ws://che.openshift.mini/wsmaster/api/ws",
-        "rel": "get workspace events channel",
-        "method": "GET",
-        "parameters": [
-          {
-            "valid": [],
-            "required": true,
-            "name": "channel",
-            "defaultValue": "workspace:workspaces1jjpxugg9t8gox0"
-          }
-        ]
-      },
-      {
-        "href": "ws://che.openshift.mini/wsmaster/api/ws",
-        "rel": "environment.output_channel",
-        "method": "GET",
-        "parameters": [
-          {
-            "valid": [],
-            "required": true,
-            "name": "channel",
-            "defaultValue": "workspace:workspaces1jjpxugg9t8gox0:environment_output"
-          }
-        ]
-      },
-      {
-        "href": "ws://che.openshift.mini/wsmaster/api/ws",
-        "rel": "environment.status_channel",
-        "method": "GET",
-        "parameters": [
-          {
-            "valid": [],
-            "required": true,
-            "name": "channel",
-            "defaultValue": "workspace:workspaces1jjpxugg9t8gox0:machines_statuses"
-          }
-        ]
       }
     ]
   }

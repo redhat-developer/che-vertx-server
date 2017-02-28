@@ -31,4 +31,13 @@ public class Utils {
 		}
 		return sb.toString();
 	}
+	
+	public static String getProperty(String propertyName, String defaultValue) {
+		String property = System.getProperty(propertyName);
+		if (property == null || property.isEmpty()) {
+			return defaultValue;
+		} else {
+			return property;
+		}
+	}
 }

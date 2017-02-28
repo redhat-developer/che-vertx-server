@@ -10,28 +10,17 @@
  ******************************************************************************/
 package io.fabric8.che.vertx.handler;
 
-import io.vertx.core.Handler;
+import io.fabric8.che.vertx.constant.Constants;
 import io.vertx.core.http.HttpServerResponse;
-import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 
-public class CreateWorkspaceHandler implements Handler<RoutingContext> {
-
-	private static final String pathToJSONResponse = "src/main/resources/CreateWorkspaceResponse.json";
+public class CreateWorkspaceHandler extends AbstractHandler {
 	
 	@Override
 	public void handle(RoutingContext routingContext) {
-		JsonObject jsonObject = routingContext.getBodyAsJson();
-		// TODO process request
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
-		response.write(getResponse());
+		response.write(getResponse(Constants.CREATE_WORKSPACE_RESPONSE_PATH));
 		response.end();
 	}
-
-	private static String getResponse() {
-		// return Utils.getTextFromFile(pathToJSONResponse);
-		return "";
-	}
-	
 }

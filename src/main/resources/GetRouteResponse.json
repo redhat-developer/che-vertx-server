@@ -10,7 +10,7 @@
 	"labels": {
 		"expose": "true",
 		"group": "io.fabric8.online.apps",
-		"project": "che",
+		"project": "{openshift.project}",
 		"provider": "fabric8",
 		"version": "1.0.30"
 	},
@@ -24,7 +24,7 @@
 		"labels": {
 			"expose": "true",
 			"group": "io.fabric8.online.apps",
-			"project": "che",
+			"project": "{openshift.project}",
 			"provider": "fabric8",
 			"version": "1.0.30"
 		}

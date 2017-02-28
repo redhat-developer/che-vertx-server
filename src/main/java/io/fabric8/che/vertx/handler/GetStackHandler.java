@@ -10,19 +10,17 @@
  ******************************************************************************/
 package io.fabric8.che.vertx.handler;
 
+import io.fabric8.che.vertx.constant.Constants;
 import io.vertx.core.http.HttpServerResponse;
-import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 
-public class CreateServerHandler extends AbstractHandler {
+public class GetStackHandler extends AbstractHandler {
 	
 	@Override
 	public void handle(RoutingContext routingContext) {
-		JsonObject jsonObject = routingContext.getBodyAsJson();
-		// TODO process request
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
-		response.write("");
+		response.write(getResponse(Constants.GET_STACK_RESPONSE_PATH));
 		response.end();
-	}
+	}	
 }

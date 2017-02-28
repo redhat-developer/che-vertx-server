@@ -12,19 +12,15 @@ package io.fabric8.che.vertx.server;
 
 import io.fabric8.che.vertx.handler.CreateServerHandler;
 import io.fabric8.che.vertx.handler.CreateWorkspaceHandler;
+import io.fabric8.che.vertx.handler.GetStackHandler;
 import io.fabric8.che.vertx.handler.GetWorkspaceHandler;
 import io.fabric8.che.vertx.handler.OpenShiftHandler;
+import io.fabric8.che.vertx.handler.StartWorkspaceHandler;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.http.HttpServer;
 import io.vertx.ext.web.Router;
 
 public class VertxWebServer extends AbstractVerticle {
-
-	private static final String SERVER = "/api/server";
-	private static final String STACK = "/api/stack";
-	private static final String WORKSPACE = "/api/workspace";
-	private static final String OPENSHIFT = "/oapi/*";
-	private static final String KUBERNETES = "/api/*";
 
 	private static final int SERVER_PORT = 33333;
 
@@ -38,10 +34,13 @@ public class VertxWebServer extends AbstractVerticle {
 	@Override
 	public void start() {
 		Router router = Router.router(vertx);
-		router.post(SERVER).handler(new CreateServerHandler());
-		router.get(WORKSPACE).handler(new GetWorkspaceHandler());
-		router.post(WORKSPACE).handler(new CreateWorkspaceHandler());
-		router.get(OPENSHIFT).handler(new OpenShiftHandler());
+		
+		router.post(ServerEndpoints.SERVER).handler(new CreateServerHandler());
+		router.get(ServerEndpoints.WORKSPACE).handler(new GetWorkspaceHandler());
+		router.post(ServerEndpoints.WORKSPACE).handler(new CreateWorkspaceHandler());
+		router.get(ServerEndpoints.STACK).handler(new GetStackHandler());
+		router.get(ServerEndpoints.OPENSHIFT).handler(new OpenShiftHandler());
+		router.post(ServerEndpoints.START_WORKSPACE).handler(new StartWorkspaceHandler());
 		
 		httpServer = vertx.createHttpServer().requestHandler(router::accept).listen(SERVER_PORT);
 	}

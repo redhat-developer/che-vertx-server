@@ -1,0 +1,50 @@
+[
+  {
+    "id": "{ws.id}",
+    "name": "{ws.name}",
+    "description": "https://github.com/mlabuda/vertx-with-che.git#master",
+    "login": null,
+    "status": "STARTED",
+    "repository": "https://github.com/mlabuda/vertx-with-che.git",
+    "branch": "master",
+    "config": {
+      "name": "{ws.name}",
+      "description": "https://github.com/mlabuda/vertx-with-che.git#master"
+    },
+    "links": [
+      {
+        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}",
+        "rel": "self link",
+        "method": "GET"
+      },
+      {
+        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}/runtime",
+        "rel": "start workspace",
+        "method": "POST"
+      },
+      {
+        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}",
+        "rel": "remove workspace",
+        "method": "DELETE"
+      },
+      {
+        "href": "{che.server.url}/wsmaster/api/workspace",
+        "rel": "get all user workspaces",
+        "method": "GET"
+      },
+      {
+        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}/snapshot",
+        "rel": "get workspace snapshot",
+        "method": "GET"
+      },
+      {
+        "href": "{che.server.url}/che/{ws.name}",
+        "rel": "ide url",
+        "method": "GET"
+      }
+    ],
+    "runtime": null,
+    "location": null,
+    "workspaceIdeUrl": "{che.server.url}/che/{ws.name}"
+  }
+]
