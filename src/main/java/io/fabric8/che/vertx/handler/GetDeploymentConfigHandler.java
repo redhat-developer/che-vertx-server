@@ -14,13 +14,13 @@ import io.fabric8.che.vertx.constant.Constants;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.RoutingContext;
 
-public class OpenShiftHandler extends AbstractHandler {
+public class GetDeploymentConfigHandler extends AbstractHandler {
 	
 	@Override
 	public void handle(RoutingContext routingContext) {
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
-		response.write(getResponse(Constants.GET_ROUTE_RESPONSE_PATH));
+		response.write(getResponse(Constants.GET_OPENSHIFT_DEPLOYMENT_CONFIG_RESPONSE_PATH));
 		response.end();
 	}
 }

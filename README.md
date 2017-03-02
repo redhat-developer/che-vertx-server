@@ -9,6 +9,7 @@ Vert.x server runs by default on `localhost:33333`
 
 There are several execution parameters:
 - `cheServerURL` - URL of virtual Che server (this vertx server), default `http://localhost:33333`
+- `openshiftDeploymentConfig` - deployment config name of Che server deployment on OpenShift, default `che`
 - `openshiftRouteName` - OpenShift route name of Che server, default `che`
 - `openshiftRouteHost` - OpenShift route host of Che server, default value is set to this vert.x server running locally, value can't contain http prefix, default `localhost:33333`. 
 - `openshiftProject` - OpenShift project in which Che server is running, default `che`

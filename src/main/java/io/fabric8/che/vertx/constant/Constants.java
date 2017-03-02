@@ -16,6 +16,7 @@ public class Constants {
 
 	// Execution parameters / properties
 	public static final String CHE_SERVER_URL_PROPERTY = "cheServerURL";
+	public static final String OPENSHIFT_DEPLOYMENT_CONFIG_PROPERTY = "openshiftDeploymentConfig";
 	public static final String OPENSHIFT_ROUTE_NAME_PROPERTY = "openshiftRouteName";
 	public static final String OPENSHIFT_ROUTE_HOST_PROPERTY = "openshiftRouteHost";
 	public static final String OPENSHIFT_PROJECT_PROPERTY = "openshiftProject";
@@ -26,6 +27,7 @@ public class Constants {
 	
 	// Variables in JSONs
 	public static final String CHE_SERVER_URL_VAR = "\\{che.server.url\\}";
+	public static final String OPENSHIFT_DEPLOYMENT_CONFIG_VAR = "\\{openshift.deployment.config\\}";
 	public static final String OPENSHIFT_ROUTE_NAME_VAR = "\\{openshift.route.name\\}";
 	public static final String OPENSHIFT_ROUTE_HOST_VAR = "\\{openshift.route.host\\}";
 	public static final String OPENSHIFT_PROJECT_VAR = "\\{openshift.project\\}";
@@ -35,6 +37,7 @@ public class Constants {
 	public static final String STACK_NAME_VAR = "\\{stack.name\\}";
 	
 	// Path to responses
+	public static final String GET_OPENSHIFT_DEPLOYMENT_CONFIG_RESPONSE_PATH = "src/main/resources/GetDeploymentConfigResponse.json";
 	public static final String GET_ROUTE_RESPONSE_PATH = "src/main/resources/GetRouteResponse.json";
 	public static final String CREATE_WORKSPACE_RESPONSE_PATH = "src/main/resources/CreateWorkspaceResponse.json";
 	public static final String GET_WORKSPACE_RESPONSE_PATH = "src/main/resources/GetWorkspaceResponse.json";
@@ -43,6 +46,7 @@ public class Constants {
 	
 	// Default values
 	public static final String DEFAULT_CHE_SERVER_URL = "http://localhost:33333";
+	public static final String DEFAULT_DEPLOYMENT_CONFIG = "che";
 	public static final String DEFAULT_OPENSHIFT_ROUTE_NAME = "che";
 	public static final String DEFAULT_OPENSHIFT_ROUTE_HOST = "localhost:33333";
 	public static final String DEFAULT_OPENSHIFT_PROJECT = "che";
@@ -53,6 +57,7 @@ public class Constants {
 	
 	// Used values
 	public static final String CHE_SERVER_URL = Utils.getProperty(CHE_SERVER_URL_PROPERTY, DEFAULT_CHE_SERVER_URL);
+	public static final String OPENSHIFT_DEPLOYMENT_CONFIG = Utils.getProperty(OPENSHIFT_DEPLOYMENT_CONFIG_PROPERTY, DEFAULT_DEPLOYMENT_CONFIG);
 	public static final String OPENSHIFT_ROUTE_NAME = Utils.getProperty(OPENSHIFT_ROUTE_NAME_PROPERTY, DEFAULT_OPENSHIFT_ROUTE_NAME);
 	public static final String OPENSHIFT_ROUTE_HOST = Utils.getProperty(OPENSHIFT_ROUTE_HOST_PROPERTY, DEFAULT_OPENSHIFT_ROUTE_HOST);
 	public static final String OPENSHIFT_PROJECT = Utils.getProperty(OPENSHIFT_PROJECT_PROPERTY, DEFAULT_OPENSHIFT_PROJECT);

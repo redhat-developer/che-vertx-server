@@ -12,9 +12,10 @@ package io.fabric8.che.vertx.server;
 
 import io.fabric8.che.vertx.handler.CreateServerHandler;
 import io.fabric8.che.vertx.handler.CreateWorkspaceHandler;
+import io.fabric8.che.vertx.handler.GetDeploymentConfigHandler;
 import io.fabric8.che.vertx.handler.GetStackHandler;
 import io.fabric8.che.vertx.handler.GetWorkspaceHandler;
-import io.fabric8.che.vertx.handler.OpenShiftHandler;
+import io.fabric8.che.vertx.handler.GetRouteHandler;
 import io.fabric8.che.vertx.handler.StartWorkspaceHandler;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.http.HttpServer;
@@ -39,7 +40,8 @@ public class VertxWebServer extends AbstractVerticle {
 		router.get(ServerEndpoints.WORKSPACE).handler(new GetWorkspaceHandler());
 		router.post(ServerEndpoints.WORKSPACE).handler(new CreateWorkspaceHandler());
 		router.get(ServerEndpoints.STACK).handler(new GetStackHandler());
-		router.get(ServerEndpoints.OPENSHIFT).handler(new OpenShiftHandler());
+		router.get(ServerEndpoints.OPENSHIFT_ROUTE).handler(new GetRouteHandler());
+		router.get(ServerEndpoints.OPENSHIFT_DEPLOYMENT_CONFIG).handler(new GetDeploymentConfigHandler());
 		router.post(ServerEndpoints.START_WORKSPACE).handler(new StartWorkspaceHandler());
 		
 		httpServer = vertx.createHttpServer().requestHandler(router::accept).listen(SERVER_PORT);

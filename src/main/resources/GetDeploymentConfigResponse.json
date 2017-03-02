@@ -1,0 +1,329 @@
+{
+    "kind": "DeploymentConfig",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "{openshift.deployment.config}",
+        "namespace": "{openshift.project}",
+        "selfLink": "/oapi/v1/namespaces/{openshift.project}/deploymentconfigs/{openshift.deployment.config}",
+        "uid": "df924b7c-ff22-11e6-b979-1efcaedeace1",
+        "resourceVersion": "2151",
+        "generation": 26,
+        "creationTimestamp": "2017-03-02T08:33:12Z",
+        "labels": {
+            "group": "io.fabric8.online.apps",
+            "project": "{openshift.project}",
+            "provider": "fabric8",
+            "version": "1.0.53"
+        },
+        "annotations": {
+            "fabric8.io/git-branch": "release-v1.0.53",
+            "fabric8.io/git-commit": "93e010a8da67170ab4fb27bb3c8582acd9db8c78",
+            "fabric8.io/iconUrl": "https://cdn.rawgit.com/fabric8io/fabric8-online/master/apps/che/src/main/fabric8/icon.png",
+            "fabric8.io/metrics-path": "dashboard/file/kubernetes-pods.json/?var-project=che\u0026var-version=1.0.53",
+            "fabric8.io/scm-con-url": "scm:git:git@github.com:fabric8io/fabric8-online.git/apps/che",
+            "fabric8.io/scm-devcon-url": "scm:git:git@github.com:fabric8io/fabric8-online.git/apps/che",
+            "fabric8.io/scm-tag": "fabric8-online-2.0.1",
+            "fabric8.io/scm-url": "http://github.com/fabric8io/fabric8-online/apps/che",
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"kind\":\"DeploymentConfig\",\"apiVersion\":\"v1\",\"metadata\":{\"name\":\"che\",\"namespace\":\"che\",\"creationTimestamp\":null,\"labels\":{\"group\":\"io.fabric8.online.apps\",\"project\":\"che\",\"provider\":\"fabric8\",\"version\":\"1.0.53\"},\"annotations\":{\"fabric8.io/git-branch\":\"release-v1.0.53\",\"fabric8.io/git-commit\":\"93e010a8da67170ab4fb27bb3c8582acd9db8c78\",\"fabric8.io/iconUrl\":\"https://cdn.rawgit.com/fabric8io/fabric8-online/master/apps/che/src/main/fabric8/icon.png\",\"fabric8.io/metrics-path\":\"dashboard/file/kubernetes-pods.json/?var-project=che\\u0026var-version=1.0.53\",\"fabric8.io/scm-con-url\":\"scm:git:git@github.com:fabric8io/fabric8-online.git/apps/che\",\"fabric8.io/scm-devcon-url\":\"scm:git:git@github.com:fabric8io/fabric8-online.git/apps/che\",\"fabric8.io/scm-tag\":\"fabric8-online-2.0.1\",\"fabric8.io/scm-url\":\"http://github.com/fabric8io/fabric8-online/apps/che\"}},\"spec\":{\"strategy\":{\"type\":\"Rolling\",\"rollingParams\":{\"updatePeriodSeconds\":1,\"intervalSeconds\":1,\"timeoutSeconds\":600,\"maxUnavailable\":\"25%\",\"maxSurge\":\"25%\"},\"resources\":{}},\"triggers\":[{\"type\":\"ConfigChange\"}],\"replicas\":1,\"test\":false,\"selector\":{\"group\":\"io.fabric8.online.apps\",\"project\":\"che\",\"provider\":\"fabric8\"},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"group\":\"io.fabric8.online.apps\",\"project\":\"che\",\"provider\":\"fabric8\",\"version\":\"1.0.53\"},\"annotations\":{\"fabric8.io/git-branch\":\"release-v1.0.53\",\"fabric8.io/git-commit\":\"93e010a8da67170ab4fb27bb3c8582acd9db8c78\",\"fabric8.io/iconUrl\":\"https://cdn.rawgit.com/fabric8io/fabric8-online/master/apps/che/src/main/fabric8/icon.png\",\"fabric8.io/metrics-path\":\"dashboard/file/kubernetes-pods.json/?var-project=che\\u0026var-version=1.0.53\",\"fabric8.io/scm-con-url\":\"scm:git:git@github.com:fabric8io/fabric8-online.git/apps/che\",\"fabric8.io/scm-devcon-url\":\"scm:git:git@github.com:fabric8io/fabric8-online.git/apps/che\",\"fabric8.io/scm-tag\":\"fabric8-online-2.0.1\",\"fabric8.io/scm-url\":\"http://github.com/fabric8io/fabric8-online/apps/che\"}},\"spec\":{\"volumes\":[{\"name\":\"docker\",\"hostPath\":{\"path\":\"/var/run/docker.sock\"}},{\"name\":\"che-conf-volume\",\"persistentVolumeClaim\":{\"claimName\":\"che-conf-volume\"}},{\"name\":\"che-data-volume\",\"persistentVolumeClaim\":{\"claimName\":\"che-data-volume\"}}],\"containers\":[{\"name\":\"che\",\"image\":\"rhche/che-server:nightly\",\"ports\":[{\"name\":\"http\",\"containerPort\":8080,\"protocol\":\"TCP\"},{\"name\":\"http-debug\",\"containerPort\":8000,\"protocol\":\"TCP\"}],\"env\":[{\"name\":\"CHE_DOCKER_IP_EXTERNAL\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"hostname-http\"}}},{\"name\":\"CHE_WORKSPACE_STORAGE\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"workspace-storage\"}}},{\"name\":\"CHE_WORKSPACE_STORAGE_CREATE_FOLDERS\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"workspace-storage-create-folders\"}}},{\"name\":\"CHE_LOCAL_CONF_DIR\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"local-conf-dir\"}}},{\"name\":\"CHE_OPENSHIFT_ENDPOINT\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"openshift-endpoint\"}}},{\"name\":\"CHE_OPENSHIFT_TOKEN\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"openshift-token\"}}},{\"name\":\"CHE_OPENSHIFT_USERNAME\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"openshift-username\"}}},{\"name\":\"CHE_OPENSHIFT_PASSWORD\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"openshift-password\"}}},{\"name\":\"CHE_OPENSHIFT_PROJECT\",\"valueFrom\":{\"fieldRef\":{\"apiVersion\":\"v1\",\"fieldPath\":\"metadata.namespace\"}}},{\"name\":\"CHE_OPENSHIFT_SERVICEACCOUNTNAME\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"openshift-serviceaccountname\"}}},{\"name\":\"CHE_DOCKER_SERVER__EVALUATION__STRATEGY\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"che-server-evaluation-strategy\"}}},{\"name\":\"CHE_LOG_LEVEL\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"log-level\"}}},{\"name\":\"CHE_PORT\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"port\"}}},{\"name\":\"CHE_DOCKER_CONNECTOR\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"docker-connector\"}}},{\"name\":\"CHE_DEBUG_SERVER\",\"valueFrom\":{\"configMapKeyRef\":{\"name\":\"che\",\"key\":\"remote-debugging-enabled\"}}}],\"resources\":{},\"volumeMounts\":[{\"name\":\"docker\",\"mountPath\":\"/var/run/docker.sock\"},{\"name\":\"che-conf-volume\",\"mountPath\":\"/conf\"},{\"name\":\"che-data-volume\",\"mountPath\":\"/data\"}],\"livenessProbe\":{\"tcpSocket\":{\"port\":8080},\"initialDelaySeconds\":120,\"timeoutSeconds\":10,\"periodSeconds\":10,\"successThreshold\":1,\"failureThreshold\":3},\"readinessProbe\":{\"tcpSocket\":{\"port\":8080},\"initialDelaySeconds\":20,\"timeoutSeconds\":10,\"periodSeconds\":10,\"successThreshold\":1,\"failureThreshold\":3},\"terminationMessagePath\":\"/dev/termination-log\",\"imagePullPolicy\":\"IfNotPresent\",\"securityContext\":{\"privileged\":true}}],\"restartPolicy\":\"Always\",\"terminationGracePeriodSeconds\":30,\"dnsPolicy\":\"ClusterFirst\",\"serviceAccountName\":\"che\",\"serviceAccount\":\"che\",\"securityContext\":{}}}},\"status\":{}}\n"
+        }
+    },
+    "spec": {
+        "strategy": {
+            "type": "Rolling",
+            "rollingParams": {
+                "updatePeriodSeconds": 1,
+                "intervalSeconds": 1,
+                "timeoutSeconds": 600,
+                "maxUnavailable": "25%",
+                "maxSurge": "25%"
+            },
+            "resources": {}
+        },
+        "triggers": [
+            {
+                "type": "ConfigChange"
+            }
+        ],
+        "replicas": 1,
+        "test": false,
+        "selector": {
+            "group": "io.fabric8.online.apps",
+            "project": "{openshift.project}",
+            "provider": "fabric8"
+        },
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "group": "io.fabric8.online.apps",
+                    "project": "{openshift.project}",
+                    "provider": "fabric8",
+                    "version": "1.0.53"
+                },
+                "annotations": {
+                    "fabric8.io/git-branch": "release-v1.0.53",
+                    "fabric8.io/git-commit": "93e010a8da67170ab4fb27bb3c8582acd9db8c78",
+                    "fabric8.io/iconUrl": "https://cdn.rawgit.com/fabric8io/fabric8-online/master/apps/che/src/main/fabric8/icon.png",
+                    "fabric8.io/metrics-path": "dashboard/file/kubernetes-pods.json/?var-project=che\u0026var-version=1.0.53",
+                    "fabric8.io/scm-con-url": "scm:git:git@github.com:fabric8io/fabric8-online.git/apps/che",
+                    "fabric8.io/scm-devcon-url": "scm:git:git@github.com:fabric8io/fabric8-online.git/apps/che",
+                    "fabric8.io/scm-tag": "fabric8-online-2.0.1",
+                    "fabric8.io/scm-url": "http://github.com/fabric8io/fabric8-online/apps/che"
+                }
+            },
+            "spec": {
+                "volumes": [
+                    {
+                        "name": "docker",
+                        "hostPath": {
+                            "path": "/var/run/docker.sock"
+                        }
+                    },
+                    {
+                        "name": "che-conf-volume",
+                        "persistentVolumeClaim": {
+                            "claimName": "che-conf-volume"
+                        }
+                    },
+                    {
+                        "name": "che-data-volume",
+                        "persistentVolumeClaim": {
+                            "claimName": "che-data-volume"
+                        }
+                    }
+                ],
+                "containers": [
+                    {
+                        "name": "{openshift.deployment.config}",
+                        "image": "rhche/che-server:nightly",
+                        "ports": [
+                            {
+                                "name": "http",
+                                "containerPort": 8080,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "name": "http-debug",
+                                "containerPort": 8000,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "env": [
+                            {
+                                "name": "CHE_DOCKER_IP_EXTERNAL",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "hostname-http"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_WORKSPACE_STORAGE",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "workspace-storage"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_WORKSPACE_STORAGE_CREATE_FOLDERS",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "workspace-storage-create-folders"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_LOCAL_CONF_DIR",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "local-conf-dir"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_OPENSHIFT_ENDPOINT",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "openshift-endpoint"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_OPENSHIFT_TOKEN",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "openshift-token"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_OPENSHIFT_USERNAME",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "openshift-username"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_OPENSHIFT_PASSWORD",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "openshift-password"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_OPENSHIFT_PROJECT",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.namespace"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_OPENSHIFT_SERVICEACCOUNTNAME",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "openshift-serviceaccountname"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_DOCKER_SERVER__EVALUATION__STRATEGY",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "che-server-evaluation-strategy"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_LOG_LEVEL",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "log-level"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_PORT",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "port"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_DOCKER_CONNECTOR",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "docker-connector"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "CHE_DEBUG_SERVER",
+                                "valueFrom": {
+                                    "configMapKeyRef": {
+                                        "name": "che",
+                                        "key": "remote-debugging-enabled"
+                                    }
+                                }
+                            }
+                        ],
+                        "resources": {},
+                        "volumeMounts": [
+                            {
+                                "name": "docker",
+                                "mountPath": "/var/run/docker.sock"
+                            },
+                            {
+                                "name": "che-conf-volume",
+                                "mountPath": "/conf"
+                            },
+                            {
+                                "name": "che-data-volume",
+                                "mountPath": "/data"
+                            }
+                        ],
+                        "livenessProbe": {
+                            "tcpSocket": {
+                                "port": 8080
+                            },
+                            "initialDelaySeconds": 120,
+                            "timeoutSeconds": 10,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "failureThreshold": 3
+                        },
+                        "readinessProbe": {
+                            "tcpSocket": {
+                                "port": 8080
+                            },
+                            "initialDelaySeconds": 20,
+                            "timeoutSeconds": 10,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "failureThreshold": 3
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "IfNotPresent",
+                        "securityContext": {
+                            "privileged": true
+                        }
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "che",
+                "serviceAccount": "che",
+                "securityContext": {}
+            }
+        }
+    },
+    "status": {
+        "latestVersion": 1,
+        "observedGeneration": 26,
+        "replicas": 1,
+        "updatedReplicas": 1,
+        "availableReplicas": 1,
+        "details": {
+            "message": "config change",
+            "causes": [
+                {
+                    "type": "ConfigChange"
+                }
+            ]
+        },
+        "conditions": [
+            {
+                "type": "Progressing",
+                "status": "True",
+                "lastTransitionTime": "2017-03-02T08:36:27Z",
+                "reason": "NewReplicationControllerAvailable",
+                "message": "Replication controller \"che-1\" has completed progressing"
+            },
+            {
+                "type": "Available",
+                "status": "True",
+                "lastTransitionTime": "2017-03-02T09:40:23Z",
+                "message": "Deployment config has minimum availability."
+            }
+        ]
+    }
+}

@@ -20,6 +20,7 @@ public abstract class AbstractHandler implements Handler<RoutingContext> {
 	public static String getResponse(String pathToJSONResponse) {
 		String template = Utils.getTextFromFile(pathToJSONResponse);
 		template = template.replaceAll(CHE_SERVER_URL_VAR, CHE_SERVER_URL);
+		template = template.replaceAll(OPENSHIFT_DEPLOYMENT_CONFIG_VAR, OPENSHIFT_DEPLOYMENT_CONFIG);
 		template = template.replaceAll(OPENSHIFT_ROUTE_NAME_VAR, OPENSHIFT_ROUTE_NAME);
 		template = template.replaceAll(OPENSHIFT_ROUTE_HOST_VAR, OPENSHIFT_ROUTE_HOST);
 		template = template.replaceAll(OPENSHIFT_PROJECT_VAR, OPENSHIFT_PROJECT);
