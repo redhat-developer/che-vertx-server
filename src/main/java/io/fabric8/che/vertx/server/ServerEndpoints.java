@@ -22,6 +22,6 @@ public class ServerEndpoints {
 	public static final String OPENSHIFT_DEPLOYMENT_CONFIG = "/oapi/v1/namespaces/" + Constants.OPENSHIFT_PROJECT
 			+ "/deploymentconfigs/" + Constants.OPENSHIFT_DEPLOYMENT_CONFIG;
 
-	public static final String START_WORKSPACE = "/api/workspace/" + Constants.WORKSPACE_ID + "/runtime";
+	public static final String WORKSPACE_RUNTIME = "/api/workspace/" + Constants.WORKSPACE_ID + "/runtime";
 
 }
