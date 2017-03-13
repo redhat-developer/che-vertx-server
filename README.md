@@ -3,7 +3,7 @@ Vert.x server runs by default on `localhost:33333`
 
 ## How to run
 - build project `mvn clean package`
-- run fat jar `java -jar target/che-vertx-server-0.0.1-SNAPSHOT-fat.jar`
+- run fat jar `java -jar target/vertx-server.jar`
 
 ## Run parameters
 
