@@ -1,19 +1,12 @@
-FROM jboss/base-jdk:8
+FROM openjdk:8-jre-alpine
 
-USER root
-RUN mkdir -p /userdata
+ENV VERTICLE_FILE vertx-server.jar
+ENV VERTICLE_HOME /usr/verticles
 
 EXPOSE 33333
 
-RUN chown -R jboss /userdata \
- && usermod -g root -G `id -g jboss` jboss \
- && chmod -R "g+rwX" /userdata \
- && chown -R jboss:root /userdata
+COPY target/$VERTICLE_FILE $VERTICLE_HOME/
 
-USER jboss
-
-RUN git clone https://github.com/mlabuda/che-vertx-server.git && \
-    cd che-vertx-server && \
-    mvn clean install
-
-CMD ["java", "-jar", "/userdata/che-vertx-server/target/vertx-server.jar"]
+WORKDIR $VERTICLE_HOME
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec java -jar $VERTICLE_FILE"]
