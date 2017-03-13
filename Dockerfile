@@ -1,12 +1,14 @@
-FROM openjdk:8-jre-alpine
+FROM jboss/base-jdk:8
 
 ENV VERTICLE_FILE vertx-server.jar
-ENV VERTICLE_HOME /usr/verticles
+
+ENV VERTICLE_HOME /opt/jboss
 
 EXPOSE 33333
 
 COPY target/$VERTICLE_FILE $VERTICLE_HOME/
 
 WORKDIR $VERTICLE_HOME
+
 ENTRYPOINT ["sh", "-c"]
 CMD ["exec java -jar $VERTICLE_FILE"]
