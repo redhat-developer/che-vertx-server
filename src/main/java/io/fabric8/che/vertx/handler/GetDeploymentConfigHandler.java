@@ -10,17 +10,18 @@
  ******************************************************************************/
 package io.fabric8.che.vertx.handler;
 
-import io.fabric8.che.vertx.constant.Constants;
+import io.fabric8.che.vertx.Response;
+import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.RoutingContext;
 
-public class GetDeploymentConfigHandler extends AbstractHandler {
+public class GetDeploymentConfigHandler implements Handler<RoutingContext> {
 	
 	@Override
 	public void handle(RoutingContext routingContext) {
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
-		response.write(getResponse(Constants.GET_OPENSHIFT_DEPLOYMENT_CONFIG_RESPONSE_PATH));
+		response.write(Response.GET_OPENSHIFT_DEPLOYMENT_CONFIG);
 		response.end();
 	}
 }

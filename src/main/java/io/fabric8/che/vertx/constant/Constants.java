@@ -37,12 +37,12 @@ public class Constants {
 	public static final String STACK_NAME_VAR = "\\{stack.name\\}";
 	
 	// Path to responses
-	public static final String GET_OPENSHIFT_DEPLOYMENT_CONFIG_RESPONSE_PATH = "src/main/resources/GetDeploymentConfigResponse.json";
-	public static final String GET_ROUTE_RESPONSE_PATH = "src/main/resources/GetRouteResponse.json";
-	public static final String CREATE_WORKSPACE_RESPONSE_PATH = "src/main/resources/CreateWorkspaceResponse.json";
-	public static final String GET_WORKSPACE_RESPONSE_PATH = "src/main/resources/GetWorkspaceResponse.json";
-	public static final String GET_STACK_RESPONSE_PATH = "src/main/resources/GetStackResponse.json";
-	public static final String START_WORKSPACE_RESPONSE_PATH = "src/main/resources/StartWorkspaceResponse.json";
+	public static final String GET_OPENSHIFT_DEPLOYMENT_CONFIG_RESPONSE_FILE = "GetDeploymentConfigResponse.json";
+	public static final String GET_ROUTE_RESPONSE_FILE = "GetRouteResponse.json";
+	public static final String CREATE_WORKSPACE_RESPONSE_FILE = "CreateWorkspaceResponse.json";
+	public static final String GET_WORKSPACE_RESPONSE_FILE = "GetWorkspaceResponse.json";
+	public static final String GET_STACK_RESPONSE_FILE = "GetStackResponse.json";
+	public static final String START_WORKSPACE_RESPONSE_FILE = "StartWorkspaceResponse.json";
 	
 	// Default values
 	public static final String DEFAULT_CHE_SERVER_URL = "http://localhost:33333";

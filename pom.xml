@@ -16,7 +16,6 @@
 				<artifactId>vertx-dependencies</artifactId>
 				<version>${vertx.version}</version>
 				<type>pom</type>
-				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -74,9 +73,7 @@
 									<resource>META-INF/services/io.vertx.core.spi.VerticleFactory</resource>
 								</transformer>
 							</transformers>
-							<artifactSet>
-							</artifactSet>
-							<outputFile>${project.build.directory}/${project.artifactId}-${project.version}-fat.jar</outputFile>
+							<outputFile>${project.build.directory}/vertx-server.jar</outputFile>
 						</configuration>
 					</execution>
 				</executions>

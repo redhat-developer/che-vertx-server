@@ -10,28 +10,25 @@
  ******************************************************************************/
 package io.fabric8.che.vertx.handler;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
 
 public class Utils {
 
-	public static String getTextFromFile(String fileToPath) {
+	public static String getTextFromFile(String resourceFile) {
 		StringBuilder sb = new StringBuilder();
-		List<String> json;
-		try {
-			json = Files.readAllLines(Paths.get(fileToPath), StandardCharsets.UTF_8);
+		ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+		try (BufferedReader reader = new BufferedReader(
+				new InputStreamReader(classloader.getResourceAsStream(resourceFile), StandardCharsets.UTF_8));) {
+			reader.lines().forEach(line -> sb.append(line));
 		} catch (IOException e) {
-			throw new RuntimeException("Cannot read file with JSON for a new workspace");
-		}
-		for (String str : json) {
-			sb.append(str);
+			throw new RuntimeException("Cannot read file with JSON " + e.getStackTrace());
 		}
 		return sb.toString();
 	}
-	
+
 	public static String getProperty(String propertyName, String defaultValue) {
 		String property = System.getProperty(propertyName);
 		if (property == null || property.isEmpty()) {

@@ -10,10 +10,11 @@
  ******************************************************************************/
 package io.fabric8.che.vertx.handler;
 
+import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.RoutingContext;
 
-public class DeleteWorkspaceHandler extends AbstractHandler {
+public class DeleteWorkspaceHandler implements Handler<RoutingContext> {
 	
 	@Override
 	public void handle(RoutingContext routingContext) {

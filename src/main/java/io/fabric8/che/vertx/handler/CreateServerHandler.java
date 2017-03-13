@@ -10,11 +10,12 @@
  ******************************************************************************/
 package io.fabric8.che.vertx.handler;
 
+import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 
-public class CreateServerHandler extends AbstractHandler {
+public class CreateServerHandler implements Handler<RoutingContext> {
 	
 	@Override
 	public void handle(RoutingContext routingContext) {
