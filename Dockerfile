@@ -4,9 +4,6 @@ ENV VERTICLE_FILE vertx-server.jar
 
 ENV VERTICLE_HOME /opt/jboss
 ENV vertx.cacheDirBase $VERTICLE_HOME
-ENV VERTX_CHE_SERVER_URL=http://localhost:33333
-ENV VERTX_OS_ROUTE_HOST=localhost:33333
-ENV VERTX_OS_PROJECT=che
 
 EXPOSE 33333
   

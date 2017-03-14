@@ -29,8 +29,18 @@ public class Utils {
 		return sb.toString();
 	}
 
+	/**
+	 * Gets at first JVM system property. If not found, try env. var and return value for it
+	 * 
+	 * @param propertyName
+	 * @param defaultValue
+	 * @return property/env var value
+	 */
 	public static String getProperty(String propertyName, String defaultValue) {
 		String property = System.getProperty(propertyName);
+		if (property == null || property.isEmpty()) {
+			property = System.getenv(propertyName);
+		}
 		if (property == null || property.isEmpty()) {
 			return defaultValue;
 		} else {
