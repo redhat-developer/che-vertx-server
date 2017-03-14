@@ -44,35 +44,35 @@
           }
         }
       },
-      "name": "{ws.name}",
+      "name": "vertx-with-che",
       "links": []
     },
     "temporary": false,
     "namespace": "{openshift.project}",
-    "name" : "{ws.name}",
+    "name" : "vertx-with-che",
     "status": "STARTING",
-    "id": "{ws.id}",
+    "id": "chevertxwsid13",
     "attributes": {
       "updated": "1487858315789",
       "created": "1487858231441"
     },
     "links": [
       {
-        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}",
+        "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13",
         "rel": "self link",
         "method": "GET",
         "parameters": []
       },
       {
         "produces": "application/json",
-        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}/runtime",
+        "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13/runtime",
         "rel": "start workspace",
         "method": "POST",
         "parameters": []
       },
       {
         "produces": "application/json",
-        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}",
+        "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13",
         "rel": "remove workspace",
         "method": "DELETE",
         "parameters": []
@@ -86,14 +86,14 @@
       },
       {
         "produces": "application/json",
-        "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}/snapshot",
+        "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13/snapshot",
         "rel": "get workspace snapshot",
         "method": "GET",
         "parameters": []
       },
       {
         "produces": "text/html",
-        "href": "{che.server.url}/che/{ws.name}",
+        "href": "{che.server.url}/che/vertx-with-che",
         "rel": "ide url",
         "method": "GET",
         "parameters": []

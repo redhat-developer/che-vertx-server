@@ -10,6 +10,7 @@
  ******************************************************************************/
 package io.fabric8.che.vertx.handler;
 
+import io.fabric8.che.vertx.Constants;
 import io.fabric8.che.vertx.Response;
 import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServerResponse;
@@ -21,7 +22,7 @@ public class CreateWorkspaceHandler implements Handler<RoutingContext> {
 	public void handle(RoutingContext routingContext) {
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
-		response.write(Response.CREATE_WORKSPACE);
+		response.write(new Response().getResponse(Constants.CREATE_WORKSPACE_RESPONSE_TEMPLATE));
 		response.end();
 	}
 }

@@ -21,7 +21,7 @@
 		],
 		"projects": [],
 		"defaultEnv": "default",
-		"name": "{ws.name}",
+		"name": "vertx-with-che",
 		"environments": {
 			"default": {
 				"machines": {
@@ -64,18 +64,18 @@
 		"origin": "mlabuda/vertx-stack",
 		"type": "image"
 	},
-	"name": "{stack.name}",
-	"id": "{stack.id}",
+	"name": "vertx-stack13",
+	"id": "default-vertx-stack",
 	"links": [
 		{
-			"href": "{che.server.url}/wsmaster/api/stack/{stack.id}",
+			"href": "{che.server.url}/wsmaster/api/stack/default-vertx-stack",
 			"rel": "remove stack",
 			"method": "DELETE",
 			"parameters": []
 		},
 		{
 			"produces": "application/json",
-			"href": "{che.server.url}/wsmaster/api/stack/{stack.id}",
+			"href": "{che.server.url}/wsmaster/api/stack/default-vertx-stack",
 			"rel": "get stack by id",
 			"method": "GET",
 			"parameters": []

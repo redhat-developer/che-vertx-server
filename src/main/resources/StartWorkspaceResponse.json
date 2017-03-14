@@ -2,11 +2,11 @@
   "attributes": {
     "updated": "1488280307806",
     "created": "1488274767445",
-    "stackId": "{stack.id}"
+    "stackId": "default-vertx-stack"
   },
   "namespace": "{openshift.project}",
   "temporary": false,
-  "id": "{ws.id}",
+  "id": "chevertxwsid13",
   "status": "STARTING",
   "runtime": {
     "machines": [],
@@ -53,7 +53,7 @@
         "mixins": []
       }
     ],
-    "name": "{ws.name}",
+    "name": "vertx-with-che",
     "commands": [
       {
         "commandLine": "mvn clean install -f ${current.project.path}",
@@ -82,20 +82,20 @@
   },
   "links": [
     {
-      "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}",
+      "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13",
       "parameters": [],
       "rel": "self link",
       "method": "GET"
     },
     {
-      "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}/runtime",
+      "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13/runtime",
       "parameters": [],
       "rel": "start workspace",
       "method": "POST",
       "produces": "application/json"
     },
     {
-      "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}",
+      "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13",
       "parameters": [],
       "rel": "remove workspace",
       "method": "DELETE",
@@ -109,14 +109,14 @@
       "produces": "application/json"
     },
     {
-      "href": "{che.server.url}/wsmaster/api/workspace/{ws.id}/snapshot",
+      "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13/snapshot",
       "parameters": [],
       "rel": "get workspace snapshot",
       "method": "GET",
       "produces": "application/json"
     },
     {
-      "href": "{che.server.url}/che/{ws.name}",
+      "href": "{che.server.url}/che/vertx-with-che",
       "parameters": [],
       "rel": "ide url",
       "method": "GET",

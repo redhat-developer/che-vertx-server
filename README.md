@@ -1,19 +1,16 @@
 # Vert.x server for che-starter performance testing
-Vert.x server runs by default on `localhost:33333`
+Vert.x server runs locally by default on `localhost:33333`.
 
-## How to run
-- build project `mvn clean package`
-- run fat jar `java -jar target/vertx-server.jar`
+## How to run locally
+- build project `mvn clean package` and run fat jar `java -jar target/vertx-server.jar`
+
+## How to run on OpenShift
+- there is a docker image `mlabuda/che-vertx-server:openshift` on dockerhub which is ready to run on OpenShift, or on docker locally
+- required parameters for running on OpenShift are `VERTX_CHE_SERVER_URL`, `VERTX_OS_ROUTE_HOST`
 
 ## Run parameters
-
 There are several execution parameters:
-- `cheServerURL` - URL of virtual Che server (this vertx server), default `http://localhost:33333`
-- `openshiftDeploymentConfig` - deployment config name of Che server deployment on OpenShift, default `che`
-- `openshiftRouteName` - OpenShift route name of Che server, default `che`
-- `openshiftRouteHost` - OpenShift route host of Che server, default value is set to this vert.x server running locally, value can't contain http prefix, default `localhost:33333`. 
-- `openshiftProject` - OpenShift project in which Che server is running, default `che`
-- `workspaceId` - id of Che workspace, default `chevertxwsid13`
-- `workspaceName`- name of Che worksace, default `vertx-with-che`
-- `stackId` - id of stack in Che, default `default-vertx-stack`
-- `stackName` - name of stack in Che, default `vertx_stack`
+- `VERTX_CHE_SERVER_URL` - URL of virtual Che server (this vertx server), default `http://localhost:33333`
+- `VERTX_OS_ROUTE_HOST` - OpenShift route host of Che server, default value is set to this vert.x server running locally, value can't contain http prefix, default `localhost:33333`. 
+- `VERTX_DC` - deployment config name of Che server deployment on OpenShift, default `che`
+- `VERTX_OS_ROUTE_NAME` - OpenShift route name of Che server, default `che-host`
