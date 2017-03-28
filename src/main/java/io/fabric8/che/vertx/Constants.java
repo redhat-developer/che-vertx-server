@@ -21,6 +21,10 @@ public class Constants {
 	public static final String OPENSHIFT_ROUTE_HOST_VAR = "\\{openshift.route.host\\}";
 	public static final String OPENSHIFT_PROJECT_VAR = "\\{openshift.project\\}";
 	public static final String STACK_NAME_VAR = "\\{stack.name\\}";
+	
+	// TODO replacement for those in Response
+	public static final String WORKSPACE_NAME_VAR = "\\{workspace.name\\}";
+	public static final String WORKSPACE_DESCRIPTION_VAR = "\\{workspace.description\\}";
 
 	// Path to responses
 	public static final String GET_OPENSHIFT_DEPLOYMENT_CONFIG_RESPONSE_TEMPLATE = Utils

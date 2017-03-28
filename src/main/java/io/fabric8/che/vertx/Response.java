@@ -10,11 +10,7 @@
  ******************************************************************************/
 package io.fabric8.che.vertx;
 
-import static io.fabric8.che.vertx.Constants.CHE_SERVER_URL_VAR;
-import static io.fabric8.che.vertx.Constants.OPENSHIFT_DEPLOYMENT_CONFIG_VAR;
-import static io.fabric8.che.vertx.Constants.OPENSHIFT_PROJECT_VAR;
-import static io.fabric8.che.vertx.Constants.OPENSHIFT_ROUTE_HOST_VAR;
-import static io.fabric8.che.vertx.Constants.OPENSHIFT_ROUTE_NAME_VAR;
+import static io.fabric8.che.vertx.Constants.*;
 
 import io.fabric8.che.vertx.handler.Utils;
 
@@ -31,6 +27,10 @@ public class Response {
 				Utils.getProperty(Properties.OPENSHIFT_ROUTE_HOST_PROPERTY, Properties.DEFAULT_OPENSHIFT_ROUTE_HOST));
 		template = template.replaceAll(OPENSHIFT_PROJECT_VAR,
 				Utils.getProperty(Properties.OPENSHIFT_PROJECT_PROPERTY, Properties.DEFAULT_OPENSHIFT_PROJECT));
+		
+		// tmp, TODO - more get workspace name and description from request and pass it to response
+		template = template.replaceAll(WORKSPACE_NAME_VAR, "vertxworkspace");
+		template = template.replaceAll(WORKSPACE_DESCRIPTION_VAR, "https://github.com/mlabuda/vertx-with-che.git#master");
 		return template;
 	}
 }

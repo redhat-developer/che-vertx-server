@@ -1,103 +1,95 @@
-[
-  {
-    "config": {
-      "commands": [],
-      "projects": [
-        {
-          "problems": [],
-          "links": [],
-          "mixins": [],
-          "description": "https://github.com/mlabuda/vertx-with-che.git#master",
-          "source": {
-            "location": "https://github.com/mlabuda/vertx-with-che.git",
-            "type": "git",
-            "parameters": {
-              "branch": "master",
-              "keepVcs": "true"
-            }
-          },
-          "name": "vertx-che",
-          "type": "maven",
-          "path": "/vertx-with-che",
-          "attributes": {}
-        }
-      ],
-      "defaultEnv": "default",
-      "environments": {
-        "default": {
-          "machines": {
-            "dev-machine": {
-              "agents": [
-                "org.eclipse.che.terminal",
-                "org.eclipse.che.ws-agent",
-                "org.eclipse.che.ssh"
-              ],
-              "servers": {},
-              "attributes": {
-                "memoryLimitBytes": "2147483648"
-              }
-            }
-          },
-          "recipe": {
-            "location": "mlabuda/vertx-stack",
-            "type": "dockerimage"
+{
+  "attributes": {
+    "created": "1490710115902"
+  },
+  "namespace": "che",
+  "temporary": false,
+  "id": "chevertxwsid13",
+  "status": "STOPPED",
+  "config": {
+    "defaultEnv": "default",
+    "environments": {
+      "default": {
+        "machines": {
+          "dev-machine": {
+            "attributes": {
+              "memoryLimitBytes": "2147483648"
+            },
+            "servers": {},
+            "agents": [
+              "org.eclipse.che.terminal",
+              "org.eclipse.che.ws-agent"
+            ]
           }
+        },
+        "recipe": {
+          "location": "rhche/vertx",
+          "type": "dockerimage"
         }
-      },
-      "name": "vertx-with-che",
-      "links": []
-    },
-    "temporary": false,
-    "namespace": "{openshift.project}",
-    "name" : "vertx-with-che",
-    "status": "STARTING",
-    "id": "chevertxwsid13",
-    "attributes": {
-      "updated": "1487858315789",
-      "created": "1487858231441"
-    },
-    "links": [
-      {
-        "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13",
-        "rel": "self link",
-        "method": "GET",
-        "parameters": []
-      },
-      {
-        "produces": "application/json",
-        "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13/runtime",
-        "rel": "start workspace",
-        "method": "POST",
-        "parameters": []
-      },
-      {
-        "produces": "application/json",
-        "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13",
-        "rel": "remove workspace",
-        "method": "DELETE",
-        "parameters": []
-      },
-      {
-        "produces": "application/json",
-        "href": "{che.server.url}/wsmaster/api/workspace",
-        "rel": "get all user workspaces",
-        "method": "GET",
-        "parameters": []
-      },
-      {
-        "produces": "application/json",
-        "href": "{che.server.url}/wsmaster/api/workspace/chevertxwsid13/snapshot",
-        "rel": "get workspace snapshot",
-        "method": "GET",
-        "parameters": []
-      },
-      {
-        "produces": "text/html",
-        "href": "{che.server.url}/che/vertx-with-che",
-        "rel": "ide url",
-        "method": "GET",
-        "parameters": []
       }
-    ]
-  }
-]
+    },
+    "projects": [],
+    "name": "{workspace.name}",
+    "description": "{workspace.description}",
+    "commands": [
+      {
+        "commandLine": "scl enable rh-maven33 'mvn clean install -f ${current.project.path}'",
+        "name": "build",
+        "attributes": {},
+        "type": "mvn"
+      },
+      {
+        "commandLine": "cd ${current.project.path} && scl enable rh-maven33 'java -jar target/*-fat.jar'",
+        "name": "run",
+        "attributes": {
+          "previewUrl": "http://${server.port.8080}"
+        },
+        "type": "custom"
+      }
+    ],
+    "links": []
+  },
+  "links": [
+    {
+      "href": "{che.server.url}/api/workspace/chevertxwsid13",
+      "parameters": [],
+      "rel": "self link",
+      "method": "GET"
+    },
+    {
+      "href": "{che.server.url}/api/workspace/chevertxwsid13/runtime",
+      "parameters": [],
+      "rel": "start workspace",
+      "method": "POST",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/api/workspace/chevertxwsid13",
+      "parameters": [],
+      "rel": "remove workspace",
+      "method": "DELETE",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/api/workspace",
+      "parameters": [],
+      "rel": "get all user workspaces",
+      "method": "GET",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/api/workspace/chevertxwsid13/snapshot",
+      "parameters": [],
+      "rel": "get workspace snapshot",
+      "method": "GET",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/che/{workspace.name}",
+      "parameters": [],
+      "rel": "ide url",
+      "method": "GET",
+      "produces": "text/html"
+    }
+  ]
+}

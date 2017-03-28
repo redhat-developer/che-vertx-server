@@ -1,84 +1,203 @@
-[{
-	"tags": [
-		"Java",
-		"Vert.x",
-		"Maven",
-		"Centos",
-		"Git"
-	],
-	"workspaceConfig": {
-		"commands": [
-			{
-				"commandLine": "scl enable rh-maven33 'mvn clean install -f ${current.project.path}'",
-				"name": "build",
-				"type": "custom"
-			},
-			{
-				"commandLine": "cd ${current.project.path} && scl enable rh-maven33 'mvn clean verify -f ${current.project.path}''",
-				"name": "verify",
-				"type": "custom"
-			}
-		],
-		"projects": [],
-		"defaultEnv": "default",
-		"name": "vertx-with-che",
-		"environments": {
-			"default": {
-				"machines": {
-					"dev-machine": {
-						"agents": [
-							"org.eclipse.che.terminal",
-							"org.eclipse.che.ws-agent",
-							"org.eclipse.che.ssh"
-						],
-						"servers": {
-							
-						},
-						"attributes": {
-							"memoryLimitBytes": "2147483648"
-						}
-					}
-				},
-				"recipe": {
-					"location": "mlabuda/vertx-stack",
-					"type": "dockerimage"
-				}
-			}
-		},
-		"links": []
-	},
-	"components": [
-		{
-			"version": "1.8.0",
-			"name": "JDK"
-		},
-		{
-			"version": "3.3.3",
-			"name": "Maven"
-		}
-	],
-	"creator": "ide",
-	"scope": "general",
-	"description": "Vert.x Stack with JDK 8 and Maven.",
-	"source": {
-		"origin": "mlabuda/vertx-stack",
-		"type": "image"
-	},
-	"name": "vertx-stack13",
-	"id": "default-vertx-stack",
-	"links": [
-		{
-			"href": "{che.server.url}/wsmaster/api/stack/default-vertx-stack",
-			"rel": "remove stack",
-			"method": "DELETE",
-			"parameters": []
-		},
-		{
-			"produces": "application/json",
-			"href": "{che.server.url}/wsmaster/api/stack/default-vertx-stack",
-			"rel": "get stack by id",
-			"method": "GET",
-			"parameters": []
-		}
-	]
-}]
+[ 
+{
+    "tags": [
+      "Java",
+      "JDK",
+      "Maven",
+      "Vert.x",
+      "CentOS",
+      "Git"
+    ],
+    "creator": "Clement Escoffier",
+    "workspaceConfig": {
+      "commands": [
+        {
+          "commandLine": "scl enable rh-maven33 'mvn clean install -f ${current.project.path}'",
+          "name": "build",
+          "type": "mvn",
+          "attributes": {}
+        },
+        {
+          "commandLine": "cd ${current.project.path} && scl enable rh-maven33 'java -jar target/*-fat.jar'",
+          "name": "run",
+          "type": "custom",
+          "attributes": {
+            "previewUrl": "http://${server.port.8080}"
+          }
+        }
+      ],
+      "projects": [],
+      "defaultEnv": "default",
+      "environments": {
+        "default": {
+          "recipe": {
+            "location": "rhche/vertx",
+            "type": "dockerimage"
+          },
+          "machines": {
+            "dev-machine": {
+              "agents": [
+                "org.eclipse.che.terminal",
+                "org.eclipse.che.ws-agent"
+              ],
+              "servers": {},
+              "attributes": {
+                "memoryLimitBytes": "2147483648"
+              }
+            }
+          }
+        }
+      },
+      "name": "default",
+      "links": []
+    },
+    "components": [
+      {
+        "version": "---",
+        "name": "CentOS"
+      },
+      {
+        "version": "1.8.0_45",
+        "name": "JDK"
+      },
+      {
+        "version": "3.2.2",
+        "name": "Maven"
+      }
+    ],
+    "scope": "advanced",
+    "source": {
+      "origin": "rhche/vertx",
+      "type": "image"
+    },
+    "description": "Eclipse Vert.x Stack on CentOS.",
+    "name": "Eclipse Vert.x",
+    "id": "vert.x",
+    "links": [
+      {
+        "rel": "remove stack",
+        "href": "{che.server.url}/wsmaster/api/stack/vert.x",
+        "method": "DELETE",
+        "parameters": []
+      },
+      {
+        "produces": "application/json",
+        "rel": "get stack by id",
+        "href": "{che.server.url}/wsmaster/api/stack/vert.x",
+        "method": "GET",
+        "parameters": []
+      },
+      {
+        "produces": "image/svg+xml",
+        "rel": "delete icon link",
+        "href": "{che.server.url}/api/stack/vert.x/icon",
+        "method": "DELETE",
+        "parameters": []
+      },
+      {
+        "produces": "image/svg+xml",
+        "rel": "get icon link",
+        "href": "{che.server.url}/api/stack/vert.x/icon",
+        "method": "GET",
+        "parameters": []
+      }
+    ]
+  },
+   {
+    "tags": [
+      "Java",
+      "JDK",
+      "Maven",
+      "Tomcat",
+      "Subversion",
+      "Ubuntu",
+      "Git"
+    ],
+    "creator": "ide",
+    "workspaceConfig": {
+      "commands": [
+        {
+          "commandLine": "mvn clean install -f ${current.project.path}",
+          "name": "build",
+          "type": "mvn",
+          "attributes": {}
+        }
+      ],
+      "projects": [],
+      "defaultEnv": "default",
+      "environments": {
+        "default": {
+          "recipe": {
+            "location": "rhche/ubuntu_jdk8",
+            "type": "dockerimage"
+          },
+          "machines": {
+            "dev-machine": {
+              "agents": [
+                "org.eclipse.che.terminal",
+                "org.eclipse.che.ws-agent"
+              ],
+              "servers": {},
+              "attributes": {
+                "memoryLimitBytes": "2147483648"
+              }
+            }
+          }
+        }
+      },
+      "name": "default",
+      "links": []
+    },
+    "components": [
+      {
+        "version": "1.8.0_45",
+        "name": "JDK"
+      },
+      {
+        "version": "3.2.2",
+        "name": "Maven"
+      },
+      {
+        "version": "8.0.24",
+        "name": "Tomcat"
+      }
+    ],
+    "scope": "general",
+    "source": {
+      "origin": "rhche/ubuntu_jdk8",
+      "type": "image"
+    },
+    "description": "Default Java Stack with JDK 8, Maven and Tomcat.",
+    "name": "Java",
+    "id": "java-default",
+    "links": [
+      {
+        "rel": "remove stack",
+        "href": "{che.server.url}/api/stack/java-default",
+        "method": "DELETE",
+        "parameters": []
+      },
+      {
+        "produces": "application/json",
+        "rel": "get stack by id",
+        "href": "{che.server.url}/api/stack/java-default",
+        "method": "GET",
+        "parameters": []
+      },
+      {
+        "produces": "image/svg+xml",
+        "rel": "delete icon link",
+        "href": "{che.server.url}/api/stack/java-default/icon",
+        "method": "DELETE",
+        "parameters": []
+      },
+      {
+        "produces": "image/svg+xml",
+        "rel": "get icon link",
+        "href": "{che.server.url}/api/stack/java-default/icon",
+        "method": "GET",
+        "parameters": []
+      }
+    ]
+  }
+  ]

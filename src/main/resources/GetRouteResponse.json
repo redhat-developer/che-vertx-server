@@ -1,60 +1,45 @@
 {
-	"kind": "Route",
-	"apiVersion": "v1",
-	"name": "{openshift.route.name}",
-	"namespace": "{openshift.project}",
-	"selfLink": "/oapi/v1/namespaces/{openshift.project}/routes/{openshift.route.name}",
-	"uid": "795c11d0-fa99-11e6-974c-c213d06c4c40",
-	"resourceVersion": "855",
-	"creationTimestamp": "2017-02-24T13:59:35Z",
-	"labels": {
-		"expose": "true",
-		"group": "io.fabric8.online.apps",
-		"project": "{openshift.project}",
-		"provider": "fabric8",
-		"version": "1.0.30"
-	},
-	"metadata": {
-		"name": "{openshift.route.name}",
-		"namespace": "{openshift.project}",
-		"selfLink": "/oapi/v1/namespaces/{openshift.project}/routes/{openshift.route.name}",
-		"uid": "795c11d0-fa99-11e6-974c-c213d06c4c40",
-		"resourceVersion": "855",
-		"creationTimestamp": "2017-02-24T13:59:35Z",
-		"labels": {
-			"expose": "true",
-			"group": "io.fabric8.online.apps",
-			"project": "{openshift.project}",
-			"provider": "fabric8",
-			"version": "1.0.30"
-		}
-	},
-	"spec": {
-		"host": "{openshift.route.host}",
-		"to": {
-			"kind": "Service",
-			"name": "{openshift.route.name}",
-			"weight": 100
-		},
-		"port": {
-			"targetPort": "http"
-		},
-		"wildcardPolicy": "None"
-	},
-	"status": {
-		"ingress": [
-			{
-				"host": "{openshift.route.host}",
-				"routerName": "router",
-				"conditions": [
-					{
-						"type": "Admitted",
-						"status": "True",
-						"lastTransitionTime": "2017-02-24T13:59:35Z"
-					}
-				],
-				"wildcardPolicy": "None"
-			}
-		]
-	}
+    "kind": "Route",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "{openshift.route.name}",
+        "namespace": "{openshift.project}",
+        "selfLink": "/oapi/v1/namespaces/eclipse-che/routes/{openshift.route.name}",
+        "uid": "c039d945-1392-11e7-8daf-7e53c819bb3d",
+        "resourceVersion": "813",
+        "creationTimestamp": "2017-03-28T08:44:26Z",
+        "labels": {
+            "expose": "false",
+            "project": "{openshift.project}",
+            "provider": "fabric8"
+        }
+    },
+    "spec": {
+        "host": "{openshift.route.host}",
+        "to": {
+            "kind": "Service",
+            "name": "{openshift.route.name}",
+            "weight": 100
+        },
+        "port": {
+            "targetPort": "http"
+        },
+        "wildcardPolicy": "None"
+    },
+    "status": {
+        "ingress": [
+            {
+                "host": "{openshift.route.host}",
+                "routerName": "router",
+                "conditions": [
+                    {
+                        "type": "Admitted",
+                        "status": "True",
+                        "lastTransitionTime": "2017-03-28T08:44:26Z"
+                    }
+                ],
+                "wildcardPolicy": "None"
+            }
+        ]
+    }
 }

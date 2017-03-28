@@ -25,7 +25,7 @@ public class Properties {
 	public static final String DEFAULT_CHE_SERVER_URL = "http://localhost:33333";
 	public static final String DEFAULT_OPENSHIFT_ROUTE_HOST = "localhost:33333";
 	
-	public static final String DEFAULT_OPENSHIFT_PROJECT = "che";
+	public static final String DEFAULT_OPENSHIFT_PROJECT = "eclipse-che";
 	
 	public static final String DEFAULT_DEPLOYMENT_CONFIG = "che";
 	public static final String DEFAULT_OPENSHIFT_ROUTE_NAME = "che-host";
