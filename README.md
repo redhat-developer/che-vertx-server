@@ -14,3 +14,20 @@ There are several execution parameters:
 - `VERTX_OS_ROUTE_HOST` - OpenShift route host of Che server, default value is set to this vert.x server running locally, value can't contain http prefix, default `localhost:33333`. 
 - `VERTX_DC` - deployment config name of Che server deployment on OpenShift, default `che`
 - `VERTX_OS_ROUTE_NAME` - OpenShift route name of Che server, default `che-host`
+
+## Usage with che-starter
+To use this mocked Vert.x server with che-starter, use following values for parameters in che-starter REST API:
+- `masterUrl` - when running locally, use `http://localhost:33333`, otherwise use real endpoint of the deployment of this server (e.g. on OpenShift a route URL)
+- `namespace` - use `eclipse-che`, for now it reflects real OpenShift project of Che server deployment
+- `Authorization` - use any string, there is no limitation so far
+- `param` - when creating a new workspace, use following params in case you wish successful calls 
+``` javascript
+ {
+  "branch": "master",
+  "description": "https://github.com/mlabuda/vertx-with-che.git#master",
+  "id": "chevertxwsid13",
+  "name": "vertxworkspace",
+  "repo": "https://github.com/mlabuda/vertx-with-che",
+  "stack": "vert.x"
+}
+```
