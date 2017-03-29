@@ -1,0 +1,444 @@
+{
+  "attributes": {
+    "updated": "1490777159557",
+    "created": "1490695702168",
+    "stackId": "vert.x"
+  },
+  "namespace": "che",
+  "temporary": false,
+  "id": "chevertxwsid13",
+  "status": "RUNNING",
+  "runtime": {
+    "machines": [
+      {
+        "envName": "default",
+        "id": "machinexh7h3m8ikf6d4cjz",
+        "owner": "che",
+        "status": "RUNNING",
+        "runtime": {
+          "properties": {
+            "hostConfig.binds": "[]",
+            "hostConfig.dnsSearch": "null",
+            "hostConfig.volumesFrom": "null",
+            "config.image": "172.30.63.195:5000/eclipse-che/rhche_ubuntu_jdk8:che-ws-1a2vz9uivb2yg38txh7h3m8ikf6d4cjz",
+            "hostConfig.logConfig": "null",
+            "config.networkDisabled": "false",
+            "config.openStdin": "false",
+            "hostConfig.memory": "0",
+            "hostConfig.extraHosts": "null",
+            "network.globalIPv6PrefixLen": "0",
+            "hostConfig.cpuShares": "0",
+            "id": "c165b2f1a95e0d44aed7688ec4a69a6f2774ed016ba8ab652bb194ce0d6d7f5c",
+            "config.securityOpts": "null",
+            "image": "sha256:fef990ddbd3d269206d03a9714bb078d7e852ad784aa20da20f6970d6d8cd32a",
+            "hostConfig.ulimits": "null",
+            "config.entrypoint": "[/home/user/entrypoint.sh]",
+            "config.exposedPorts": "{4401/tcp={}, 8080/tcp={}, 22/tcp={}, 4403/tcp={}, 4411/tcp={}, 9876/tcp={}, 8000/tcp={}}",
+            "network.ipAddress": "172.30.162.159",
+            "volumes": "{}",
+            "hostConfig.links": "null",
+            "config.user": "user",
+            "hostConfig.pidsLimit": "-1",
+            "config.tty": "false",
+            "config.volumes": "null",
+            "config.labels": "{che:server:9876:ref=codeserver, che:server:4401/tcp:protocol=http, che:server:4401/tcp:ref=wsagent, che:server:8000:ref=tomcat8-debug, che:server:8080:ref=tomcat8, che:server:9876:protocol=http, che:server:8000:protocol=http, che:server:4401/tcp:path=/api, che:server:4411/tcp:ref=terminal, che:server:8080:protocol=http, che:server:4411/tcp:protocol=http}",
+            "volumesRW": "{}",
+            "hostConfig.devices": "null",
+            "config.hostname": "che-ws-1a2vz9uivb2yg38t",
+            "config.env": "[PATH=/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:/home/user/apache-maven-3.3.9/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin, JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64, LANG=en_US.UTF-8, MAVEN_VERSION=3.3.9, TOMCAT_HOME=/home/user/tomcat8, TERM=xterm, M2_HOME=/home/user/apache-maven-3.3.9, HOME=/home/user, MAVEN_OPTS=-Xms256m -Xmx2048m -Djava.security.egd=file:/dev/./urandom, CHE_LOCAL_CONF_DIR=/mnt/che/conf, USER_TOKEN=dummy_token, JAVA_OPTS=-Xms256m -Xmx2048m -Djava.security.egd=file:/dev/./urandom, CHE_WORKSPACE_ID=workspace1a2vz9uivb2yg38t, CHE_PROJECTS_ROOT=/projects, CHE_API=http://che-host:8080/wsmaster/api]",
+            "restartCount": "0",
+            "config.attachStdin": "false",
+            "config.stdinOnce": "false",
+            "config.attachStderr": "false",
+            "logPath": "null",
+            "network.portMappings": "null",
+            "hostConfig.capDrop": "null",
+            "hostConfig.restartPolicy": "null",
+            "config.attachStdout": "false",
+            "network.ports": "{4401/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 8080/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 22/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 4403/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 4411/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 9876/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 8000/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}]}",
+            "network.gateway": "172.30.162.159",
+            "network.ipPrefixLen": "0",
+            "config.workingDir": "/projects",
+            "hostConfig.dns": "null",
+            "args": "null",
+            "config.cmd": "[/bin/sh, -c, #(nop) COPY file:313ca9b09355611f665c0957ad25451ed7723d0839628809e3031796aa45f03e in /home/user/entrypoint.sh ]",
+            "network.linkLocalIPv6PrefixLen": "0",
+            "hostConfig.portBindings": "{}",
+            "hostConfig.lxcConf": "null",
+            "hostConfig.memorySwap": "0",
+            "hostConfig.capAdd": "null"
+          },
+          "servers": {
+             "4401/tcp": {
+            "url": "{che.server.url}/api/chevertxwsid13/wsagent",
+            "ref": "wsagent",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:4401/api",
+              "internalAddress": "172.30.162.159:4401",
+              "path": "/api"
+            },
+            "address": "wsagent.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          },
+          "8080/tcp": {
+            "url": "{che.server.url}/ws-runtime/tomcat8080",
+            "ref": "tomcat8",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:8080",
+              "internalAddress": "172.30.162.159:8080"
+            },
+            "address": "tomcat8.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          },
+          "22/tcp": {
+            "ref": "Server-22-tcp",
+            "properties": {
+              "internalAddress": "172.30.162.159:22"
+            },
+            "address": "Server-22-tcp.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io"
+          },
+          "9876/tcp": {
+            "url": "{che.server.url}/ws-runtime/codeserver",
+            "ref": "codeserver",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:9876",
+              "internalAddress": "172.30.162.159:9876"
+            },
+            "address": "codeserver.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          },
+          "4411/tcp": {
+            "url": "{che-server-url}/ws-runtime/terminal",
+            "ref": "terminal",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:4411",
+              "internalAddress": "172.30.162.159:4411"
+            },
+            "address": "terminal.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          },
+          "4403/tcp": {
+            "url": "{che.server.url}/ws-runtime/ws-debug",
+            "ref": "wsagent.debug",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:4403",
+              "internalAddress": "172.30.162.159:4403"
+            },
+            "address": "Server-4403-tcp.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          },
+          "8000/tcp": {
+            "url": "{che.server.url}/ws-runtime/tomcat",
+            "ref": "tomcat8-debug",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:8000",
+              "internalAddress": "172.30.162.159:8000"
+            },
+            "address": "tomcat8-debug.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          }
+          },
+          "envVariables": {
+            "PATH": "/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:/home/user/apache-maven-3.3.9/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "USER_TOKEN": "dummy_token",
+            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0-openjdk-amd64",
+            "MAVEN_VERSION": "3.3.9",
+            "JAVA_OPTS": "-Xms256m -Xmx2048m -Djava.security.egd=file:/dev/./urandom",
+            "TERM": "xterm",
+            "CHE_PROJECTS_ROOT": "/projects",
+            "LANG": "en_US.UTF-8",
+            "CHE_API": "http://che-host:8080/wsmaster/api",
+            "MAVEN_OPTS": "-Xms256m -Xmx2048m -Djava.security.egd=file:/dev/./urandom",
+            "CHE_LOCAL_CONF_DIR": "/mnt/che/conf",
+            "M2_HOME": "/home/user/apache-maven-3.3.9",
+            "CHE_WORKSPACE_ID": "workspace1a2vz9uivb2yg38t",
+            "TOMCAT_HOME": "/home/user/tomcat8",
+            "HOME": "/home/user"
+          }
+        },
+        "config": {
+          "limits": {
+            "ram": 2048
+          },
+          "name": "dev-machine",
+          "type": "docker",
+          "source": {
+            "location": "rhche/vertx",
+            "type": "image"
+          },
+          "dev": true,
+          "servers": [],
+          "envVariables": {},
+          "links": []
+        },
+        "workspaceId": "chevertxwsid13",
+        "links": []
+      }
+    ],
+    "activeEnv": "default",
+    "devMachine": {
+      "envName": "default",
+      "id": "machinexh7h3m8ikf6d4cjz",
+      "owner": "che",
+      "status": "RUNNING",
+      "runtime": {
+        "properties": {
+          "hostConfig.binds": "[]",
+          "hostConfig.dnsSearch": "null",
+          "hostConfig.volumesFrom": "null",
+          "config.image": "172.30.63.195:5000/eclipse-che/rhche_ubuntu_jdk8:che-ws-1a2vz9uivb2yg38txh7h3m8ikf6d4cjz",
+          "hostConfig.logConfig": "null",
+          "config.networkDisabled": "false",
+          "config.openStdin": "false",
+          "hostConfig.memory": "0",
+          "hostConfig.extraHosts": "null",
+          "network.globalIPv6PrefixLen": "0",
+          "hostConfig.cpuShares": "0",
+          "id": "c165b2f1a95e0d44aed7688ec4a69a6f2774ed016ba8ab652bb194ce0d6d7f5c",
+          "config.securityOpts": "null",
+          "image": "sha256:fef990ddbd3d269206d03a9714bb078d7e852ad784aa20da20f6970d6d8cd32a",
+          "hostConfig.ulimits": "null",
+          "config.entrypoint": "[/home/user/entrypoint.sh]",
+          "config.exposedPorts": "{4401/tcp={}, 8080/tcp={}, 22/tcp={}, 4403/tcp={}, 4411/tcp={}, 9876/tcp={}, 8000/tcp={}}",
+          "network.ipAddress": "172.30.162.159",
+          "volumes": "{}",
+          "hostConfig.links": "null",
+          "config.user": "user",
+          "hostConfig.pidsLimit": "-1",
+          "config.tty": "false",
+          "config.volumes": "null",
+          "config.labels": "{che:server:9876:ref=codeserver, che:server:4401/tcp:protocol=http, che:server:4401/tcp:ref=wsagent, che:server:8000:ref=tomcat8-debug, che:server:8080:ref=tomcat8, che:server:9876:protocol=http, che:server:8000:protocol=http, che:server:4401/tcp:path=/api, che:server:4411/tcp:ref=terminal, che:server:8080:protocol=http, che:server:4411/tcp:protocol=http}",
+          "volumesRW": "{}",
+          "hostConfig.devices": "null",
+          "config.hostname": "che-ws-1a2vz9uivb2yg38t",
+          "config.env": "[PATH=/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:/home/user/apache-maven-3.3.9/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin, JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64, LANG=en_US.UTF-8, MAVEN_VERSION=3.3.9, TOMCAT_HOME=/home/user/tomcat8, TERM=xterm, M2_HOME=/home/user/apache-maven-3.3.9, HOME=/home/user, MAVEN_OPTS=-Xms256m -Xmx2048m -Djava.security.egd=file:/dev/./urandom, CHE_LOCAL_CONF_DIR=/mnt/che/conf, USER_TOKEN=dummy_token, JAVA_OPTS=-Xms256m -Xmx2048m -Djava.security.egd=file:/dev/./urandom, CHE_WORKSPACE_ID=workspace1a2vz9uivb2yg38t, CHE_PROJECTS_ROOT=/projects, CHE_API=http://che-host:8080/wsmaster/api]",
+          "restartCount": "0",
+          "config.attachStdin": "false",
+          "config.stdinOnce": "false",
+          "config.attachStderr": "false",
+          "logPath": "null",
+          "network.portMappings": "null",
+          "hostConfig.capDrop": "null",
+          "hostConfig.restartPolicy": "null",
+          "config.attachStdout": "false",
+          "network.ports": "{4401/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 8080/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 22/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 4403/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 4411/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 9876/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}], 8000/tcp=[PortBinding{hostIp='172.17.0.1', hostPort='null'}]}",
+          "network.gateway": "172.30.162.159",
+          "network.ipPrefixLen": "0",
+          "config.workingDir": "/projects",
+          "hostConfig.dns": "null",
+          "args": "null",
+          "config.cmd": "[/bin/sh, -c, #(nop) COPY file:313ca9b09355611f665c0957ad25451ed7723d0839628809e3031796aa45f03e in /home/user/entrypoint.sh ]",
+          "network.linkLocalIPv6PrefixLen": "0",
+          "hostConfig.portBindings": "{}",
+          "hostConfig.lxcConf": "null",
+          "hostConfig.memorySwap": "0",
+          "hostConfig.capAdd": "null"
+        },
+        "servers": {
+          "4401/tcp": {
+            "url": "{che.server.url}/api/chevertxwsid13/wsagent",
+            "ref": "wsagent",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:4401/api",
+              "internalAddress": "172.30.162.159:4401",
+              "path": "/api"
+            },
+            "address": "wsagent.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          },
+          "8080/tcp": {
+            "url": "{che.server.url}/ws-runtime/tomcat8080",
+            "ref": "tomcat8",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:8080",
+              "internalAddress": "172.30.162.159:8080"
+            },
+            "address": "tomcat8.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          },
+          "22/tcp": {
+            "ref": "Server-22-tcp",
+            "properties": {
+              "internalAddress": "172.30.162.159:22"
+            },
+            "address": "Server-22-tcp.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io"
+          },
+          "9876/tcp": {
+            "url": "{che.server.url}/ws-runtime/codeserver",
+            "ref": "codeserver",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:9876",
+              "internalAddress": "172.30.162.159:9876"
+            },
+            "address": "codeserver.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          },
+          "4411/tcp": {
+            "url": "{che-server-url}/ws-runtime/terminal",
+            "ref": "terminal",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:4411",
+              "internalAddress": "172.30.162.159:4411"
+            },
+            "address": "terminal.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          },
+          "4403/tcp": {
+            "url": "{che.server.url}/ws-runtime/ws-debug",
+            "ref": "wsagent.debug",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:4403",
+              "internalAddress": "172.30.162.159:4403"
+            },
+            "address": "Server-4403-tcp.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          },
+          "8000/tcp": {
+            "url": "{che.server.url}/ws-runtime/tomcat",
+            "ref": "tomcat8-debug",
+            "properties": {
+              "internalUrl": "http://172.30.162.159:8000",
+              "internalAddress": "172.30.162.159:8000"
+            },
+            "address": "tomcat8-debug.1a2vz9uivb2yg38t.che.192.168.42.177.nip.io",
+            "protocol": "http"
+          }
+        },
+        "envVariables": {
+          "PATH": "/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:/home/user/apache-maven-3.3.9/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "USER_TOKEN": "dummy_token",
+          "JAVA_HOME": "/usr/lib/jvm/java-1.8.0-openjdk-amd64",
+          "MAVEN_VERSION": "3.3.9",
+          "JAVA_OPTS": "-Xms256m -Xmx2048m -Djava.security.egd=file:/dev/./urandom",
+          "TERM": "xterm",
+          "CHE_PROJECTS_ROOT": "/projects",
+          "LANG": "en_US.UTF-8",
+          "CHE_API": "http://che-host:8080/wsmaster/api",
+          "MAVEN_OPTS": "-Xms256m -Xmx2048m -Djava.security.egd=file:/dev/./urandom",
+          "CHE_LOCAL_CONF_DIR": "/mnt/che/conf",
+          "M2_HOME": "/home/user/apache-maven-3.3.9",
+          "CHE_WORKSPACE_ID": "workspace1a2vz9uivb2yg38t",
+          "TOMCAT_HOME": "/home/user/tomcat8",
+          "HOME": "/home/user"
+        }
+      },
+      "config": {
+        "limits": {
+          "ram": 2048
+        },
+        "name": "dev-machine",
+        "type": "docker",
+        "source": {
+          "location": "rhche/vertx",
+          "type": "image"
+        },
+        "dev": true,
+        "servers": [],
+        "envVariables": {},
+        "links": []
+      },
+      "workspaceId": "chevertxwsid13",
+      "links": []
+    },
+    "rootFolder": "/projects",
+    "links": [
+      {
+        "href": "{che.server.url}/api/workspace/chevertxwsid13/runtime",
+        "parameters": [],
+        "rel": "stop workspace",
+        "method": "DELETE"
+      },
+      {
+        "href": "{che.server.url}/api",
+        "parameters": [],
+        "rel": "wsagent",
+        "method": "GET"
+      }
+    ]
+  },
+  "config": {
+    "defaultEnv": "default",
+    "environments": {
+      "default": {
+        "machines": {
+          "dev-machine": {
+            "attributes": {
+              "memoryLimitBytes": "2147483648"
+            },
+            "servers": {},
+            "agents": [
+              "org.eclipse.che.terminal",
+              "org.eclipse.che.ws-agent"
+            ]
+          }
+        },
+        "recipe": {
+          "location": "rhche/vertx",
+          "type": "dockerimage"
+        }
+      }
+    },
+    "projects": [],
+    "name": "{workspace.name}",
+     "commands": [
+      {
+        "commandLine": "scl enable rh-maven33 'mvn clean install -f ${current.project.path}'",
+        "name": "build",
+        "attributes": {},
+        "type": "mvn"
+      },
+      {
+        "commandLine": "cd ${current.project.path} && scl enable rh-maven33 'java -jar target/*-fat.jar'",
+        "name": "run",
+        "attributes": {
+          "previewUrl": "http://${server.port.8080}"
+        },
+        "type": "custom"
+      }
+    ],
+    "links": []
+  },
+  "links": [
+    {
+      "href": "{che.server.url}/api/workspace/chevertxwsid13",
+      "parameters": [],
+      "rel": "self link",
+      "method": "GET"
+    },
+    {
+      "href": "{che.server.url}/api/workspace/chevertxwsid13/runtime",
+      "parameters": [],
+      "rel": "start workspace",
+      "method": "POST",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/api/workspace/chevertxwsid13",
+      "parameters": [],
+      "rel": "remove workspace",
+      "method": "DELETE",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/api/workspace",
+      "parameters": [],
+      "rel": "get all user workspaces",
+      "method": "GET",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/api/workspace/chevertxwsid13/snapshot",
+      "parameters": [],
+      "rel": "get workspace snapshot",
+      "method": "GET",
+      "produces": "application/json"
+    },
+    {
+      "href": "{che.server.url}/che/{workspace.name}",
+      "parameters": [],
+      "rel": "ide url",
+      "method": "GET",
+      "produces": "text/html"
+    }
+  ]
+}

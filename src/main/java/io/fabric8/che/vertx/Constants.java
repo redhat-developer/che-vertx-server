@@ -31,9 +31,11 @@ public class Constants {
 			.getTextFromFile("GetDeploymentConfigResponse.json");
 	public static final String GET_ROUTE_RESPONSE_TEMPLATE = Utils.getTextFromFile("GetRouteResponse.json");
 	public static final String CREATE_WORKSPACE_RESPONSE_TEMPLATE = Utils.getTextFromFile("CreateWorkspaceResponse.json");
+	public static final String CREATE_PROJECT_RESPONSE_TEMPLATE = Utils.getTextFromFile("CreateProjectResponse.json");
 	public static final String GET_WORKSPACE_RESPONSE_TEMPLATE = Utils.getTextFromFile("GetWorkspaceResponse.json");
+	public static final String GET_WORKSPACE_BY_ID_RESPONSE_TEMPLATE = Utils.getTextFromFile("GetWorkspaceByIdResponse.json");
 	public static final String GET_STACK_RESPONSE_TEMPLATE = Utils.getTextFromFile("GetStackResponse.json");
 	public static final String START_WORKSPACE_RESPONSE_TEMPLATE = Utils.getTextFromFile("StartWorkspaceResponse.json");
-
+	public static final String GET_WORKSPACE_STATUS_RESPONSE_TEMPLATE = Utils.getTextFromFile("GetStatusResponse.json");
 
 }
