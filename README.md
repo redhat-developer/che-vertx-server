@@ -1,5 +1,5 @@
 # Vert.x server for che-starter performance testing
-Vert.x server runs locally by default on `localhost:33333`.
+Vert.x server runs locally by default on `localhost:33333`. To access OpenShift endpoints, it is necessary to pass header Authorization with token `customtoken` - `"Authorization: Bearer customtoken"`
 
 ## How to run locally
 - build project `mvn clean package` and run fat jar `java -jar target/vertx-server.jar`
