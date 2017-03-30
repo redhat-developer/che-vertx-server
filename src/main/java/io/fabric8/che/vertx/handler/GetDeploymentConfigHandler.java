@@ -11,6 +11,7 @@
 package io.fabric8.che.vertx.handler;
 
 import io.fabric8.che.vertx.Constants;
+import io.fabric8.che.vertx.Properties;
 import io.fabric8.che.vertx.Response;
 import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServerResponse;
@@ -22,7 +23,12 @@ public class GetDeploymentConfigHandler implements Handler<RoutingContext> {
 	public void handle(RoutingContext routingContext) {
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
-		response.write(new Response().getResponse(Constants.GET_OPENSHIFT_DEPLOYMENT_CONFIG_RESPONSE_TEMPLATE));
+		String authHeader = routingContext.request().getHeader("Authorization");
+		if (authHeader == null || !authHeader.equals(Properties.DEFAULT_AUTH_TOKEN)) {
+			response.setStatusCode(203);
+		} else {
+			response.write(new Response().getResponse(Constants.GET_OPENSHIFT_DEPLOYMENT_CONFIG_RESPONSE_TEMPLATE));
+		}
 		response.end();
 	}
 }

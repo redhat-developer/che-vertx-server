@@ -14,17 +14,22 @@ import io.fabric8.che.vertx.Properties;
 
 public class ServerEndpoints {
 
+	// Che general endpoints
 	public static final String SERVER = "/api/server";
 	public static final String STACK = "/api/stack";
 	public static final String WORKSPACE = "/api/workspace";
+	
+	// WS specific endpoints
 	public static final String WORKSPACE_BY_ID = "/api/workspace/chevertxwsid13";
+	public static final String WORKSPACE_RUNTIME = "/api/workspace/chevertxwsid13/runtime";
+	public static final String WORKSPACE_STATUS = "/api/workspace/chevertxwsid13/check";
+	public static final String CREATE_WORKSPACE = "/api/chevertxwsid13/wsagent/project/batch";
+
+	// OpenShift endpoints
 	public static final String OPENSHIFT_ROUTE = "/oapi/v1/namespaces/" + Properties.DEFAULT_OPENSHIFT_PROJECT
 			+ "/routes/" + Properties.DEFAULT_OPENSHIFT_ROUTE_NAME;
 	public static final String OPENSHIFT_DEPLOYMENT_CONFIG = "/oapi/v1/namespaces/"
 			+ Properties.DEFAULT_OPENSHIFT_PROJECT + "/deploymentconfigs/" + Properties.DEFAULT_DEPLOYMENT_CONFIG;
 
-	public static final String WORKSPACE_RUNTIME = "/api/workspace/chevertxwsid13/runtime";
-	public static final String WORKSPACE_STATUS = "/api/workspace/chevertxwsid13/check";
-	public static final String CREATE_WORKSPACE = "/api/chevertxwsid13/wsagent/project/batch";
-
+	
 }

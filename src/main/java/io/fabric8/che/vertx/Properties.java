@@ -29,4 +29,6 @@ public class Properties {
 	
 	public static final String DEFAULT_DEPLOYMENT_CONFIG = "che";
 	public static final String DEFAULT_OPENSHIFT_ROUTE_NAME = "che-host";
+	
+	public static final String DEFAULT_AUTH_TOKEN = "Bearer customtoken";
 }

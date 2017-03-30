@@ -14,11 +14,10 @@ import io.fabric8.che.vertx.Constants;
 import io.fabric8.che.vertx.Response;
 import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServerResponse;
-import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 
-public class CreateProjectHandler  implements Handler<RoutingContext> {
-	
+public class CreateProjectHandler implements Handler<RoutingContext> {
+
 	@Override
 	public void handle(RoutingContext routingContext) {
 		HttpServerResponse response = routingContext.response();
