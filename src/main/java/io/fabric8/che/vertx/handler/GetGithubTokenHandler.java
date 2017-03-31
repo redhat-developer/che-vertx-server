@@ -10,24 +10,22 @@
  ******************************************************************************/
 package io.fabric8.che.vertx.handler;
 
-import io.fabric8.che.vertx.Constants;
 import io.fabric8.che.vertx.Properties;
-import io.fabric8.che.vertx.Response;
 import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.RoutingContext;
 
-public class GetDeploymentConfigHandler implements Handler<RoutingContext> {
-	
+public class GetGithubTokenHandler implements Handler<RoutingContext> {
+
 	@Override
 	public void handle(RoutingContext routingContext) {
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
-		String authHeader = routingContext.request().getHeader("Authorization");
-		if (authHeader == null || !authHeader.equals(Properties.DEFAULT_AUTH_TOKEN)) {
-			response.setStatusCode(401);
+		if (routingContext.request().getHeader("Authorization").equals(Properties.DEFAULT_KEYCLOAK_TOKEN)) {
+			response.write("access_token=" + Properties.DEFAULT_GITHUB_TOKEN + "&scope=scope");
 		} else {
-			response.write(new Response().getResponse(Constants.GET_OPENSHIFT_DEPLOYMENT_CONFIG_RESPONSE_TEMPLATE));
+			response.write("{\"errorMessage\":\"Invalid token.\"}");
+			response.setStatusCode(400);
 		}
 		response.end();
 	}

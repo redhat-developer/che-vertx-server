@@ -31,5 +31,7 @@ public class ServerEndpoints {
 	public static final String OPENSHIFT_DEPLOYMENT_CONFIG = "/oapi/v1/namespaces/"
 			+ Properties.DEFAULT_OPENSHIFT_PROJECT + "/deploymentconfigs/" + Properties.DEFAULT_DEPLOYMENT_CONFIG;
 
-	
+	// Keycloak endpoints
+	public static final String KEYCLOAK_OS_TOKEN = "/keycloak/token/openshift";
+	public static final String KEYCLOAK_GITHUB_TOKEN = "/keycloak/token/github";
 }

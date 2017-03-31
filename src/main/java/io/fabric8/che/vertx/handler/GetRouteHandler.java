@@ -25,7 +25,7 @@ public class GetRouteHandler implements Handler<RoutingContext> {
 		response.putHeader("Content-Type", "application/json").setChunked(true);
 		String authHeader = routingContext.request().getHeader("Authorization");
 		if (authHeader == null || !authHeader.contains(Properties.DEFAULT_AUTH_TOKEN)) {
-			response.setStatusCode(203);
+			response.setStatusCode(401);
 		} else {
 			response.write(new Response().getResponse(Constants.GET_ROUTE_RESPONSE_TEMPLATE));
 		}

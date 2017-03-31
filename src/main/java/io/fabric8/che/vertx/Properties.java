@@ -30,5 +30,8 @@ public class Properties {
 	public static final String DEFAULT_DEPLOYMENT_CONFIG = "che";
 	public static final String DEFAULT_OPENSHIFT_ROUTE_NAME = "che-host";
 	
-	public static final String DEFAULT_AUTH_TOKEN = "Bearer customtoken";
+	public static final String DEFAULT_KEYCLOAK_TOKEN = "keycloaktoken";
+	public static final String DEFAULT_OPENSHIFT_TOKEN = "openshifttoken";
+	public static final String DEFAULT_AUTH_TOKEN = "Bearer " + DEFAULT_OPENSHIFT_TOKEN;
+	public static final String DEFAULT_GITHUB_TOKEN = "githubtoken";
 }
