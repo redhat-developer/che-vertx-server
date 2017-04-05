@@ -22,8 +22,8 @@ public class GetOpenShiftTokenHandler implements Handler<RoutingContext> {
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
 		if (routingContext.request().getHeader("Authorization").equals(Properties.DEFAULT_KEYCLOAK_TOKEN)) {
-			response.write("{\"access_token\":\"" + Properties.DEFAULT_OPENSHIFT_TOKEN
-					+ "token\",\"expires_in\":86400,\"scope\":\"user:full\",\"token_type\":\"Bearer\"}");
+			response.write("{\"access_token\":\"" + Properties.DEFAULT_OPENSHIFT_TOKEN + 
+					"\",\"expires_in\":86400,\"scope\":\"user:full\",\"token_type\":\"Bearer\"}");
 		} else {
 			response.write("{\"errorMessage\":\"Invalid token.\"}");
 			response.setStatusCode(400);
