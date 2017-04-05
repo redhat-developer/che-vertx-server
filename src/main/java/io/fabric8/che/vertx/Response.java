@@ -30,7 +30,8 @@ public class Response {
 		
 		// tmp, TODO - more get workspace name and description from request and pass it to response
 		template = template.replaceAll(WORKSPACE_NAME_VAR, "vertxworkspace");
-		template = template.replaceAll(WORKSPACE_DESCRIPTION_VAR, "https://github.com/mlabuda/vertx-with-che.git#master");
+		template = template.replaceAll(WORKSPACE_DESCRIPTION_VAR, 
+				"https://github.com/mlabuda/vertx-with-che.git#master#WI13");
 		return template;
 	}
 }
