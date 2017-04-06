@@ -34,4 +34,6 @@ public class ServerEndpoints {
 	// Keycloak endpoints
 	public static final String KEYCLOAK_OS_TOKEN = "/keycloak/token/openshift";
 	public static final String KEYCLOAK_GITHUB_TOKEN = "/keycloak/token/github";
+	
+	public static final String SET_GITHUB_TOKEN = "/wsmaster/api/oauth/token";
 }
