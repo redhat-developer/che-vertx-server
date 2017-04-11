@@ -22,7 +22,7 @@ public class GetGithubUserInfoHandler implements Handler<RoutingContext> {
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
 		if (routingContext.request().getHeader("Authorization").contains(Properties.DEFAULT_GITHUB_TOKEN)) {
-			response.write("{ \"name\":\"Marian Labuda\", \"email\":\"mlabuda@redhat.com\"");
+			response.write("{ \"name\":\"Marian Labuda\", \"email\":\"mlabuda@redhat.com\"}");
 		} else {
 			response.write("{\"errorMessage\":\"Invalid token.\"}");
 			response.setStatusCode(400);
