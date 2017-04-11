@@ -24,6 +24,7 @@ import io.fabric8.che.vertx.handler.GetStatusHandler;
 import io.fabric8.che.vertx.handler.GetWorkspaceByIdHandler;
 import io.fabric8.che.vertx.handler.GetWorkspaceHandler;
 import io.fabric8.che.vertx.handler.PostGithubTokenHandler;
+import io.fabric8.che.vertx.handler.PutPreferencesHandler;
 import io.fabric8.che.vertx.handler.StartWorkspaceHandler;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.http.HttpServer;
@@ -68,6 +69,7 @@ public class VertxWebServer extends AbstractVerticle {
 		
 		// WS Master
 		router.post(ServerEndpoints.SET_GITHUB_TOKEN).handler(new PostGithubTokenHandler());
+		router.put(ServerEndpoints.WS_MASTER_PREFERENCES).handler(new PutPreferencesHandler());
 		
 		// Github 
 		router.get(ServerEndpoints.GET_GITHUB_USER).handler(new GetGithubUserInfoHandler());

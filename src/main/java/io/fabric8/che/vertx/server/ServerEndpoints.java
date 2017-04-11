@@ -24,7 +24,11 @@ public class ServerEndpoints {
 	public static final String WORKSPACE_RUNTIME = "/api/workspace/chevertxwsid13/runtime";
 	public static final String WORKSPACE_STATUS = "/api/workspace/chevertxwsid13/check";
 	public static final String CREATE_WORKSPACE = "/api/chevertxwsid13/wsagent/project/batch";
-
+	
+	// WS master
+	public static final String SET_GITHUB_TOKEN = "/wsmaster/api/oauth/token";
+	public static final String WS_MASTER_PREFERENCES = "/wsmaster/api/preferences";
+			
 	// OpenShift endpoints
 	public static final String OPENSHIFT_ROUTE = "/oapi/v1/namespaces/" + Properties.DEFAULT_OPENSHIFT_PROJECT
 			+ "/routes/" + Properties.DEFAULT_OPENSHIFT_ROUTE_NAME;
@@ -35,6 +39,6 @@ public class ServerEndpoints {
 	public static final String KEYCLOAK_OS_TOKEN = "/keycloak/token/openshift";
 	public static final String KEYCLOAK_GITHUB_TOKEN = "/keycloak/token/github";
 	
-	public static final String SET_GITHUB_TOKEN = "/wsmaster/api/oauth/token";
+	// Github endpoint
 	public static final String GET_GITHUB_USER = "/github/user";
 }
