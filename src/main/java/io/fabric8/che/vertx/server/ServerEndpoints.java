@@ -36,4 +36,5 @@ public class ServerEndpoints {
 	public static final String KEYCLOAK_GITHUB_TOKEN = "/keycloak/token/github";
 	
 	public static final String SET_GITHUB_TOKEN = "/wsmaster/api/oauth/token";
+	public static final String GET_GITHUB_USER = "/github/user";
 }

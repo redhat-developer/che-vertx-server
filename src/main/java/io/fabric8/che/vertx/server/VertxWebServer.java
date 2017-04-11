@@ -16,6 +16,7 @@ import io.fabric8.che.vertx.handler.CreateWorkspaceHandler;
 import io.fabric8.che.vertx.handler.DeleteWorkspaceHandler;
 import io.fabric8.che.vertx.handler.GetDeploymentConfigHandler;
 import io.fabric8.che.vertx.handler.GetGithubTokenHandler;
+import io.fabric8.che.vertx.handler.GetGithubUserInfoHandler;
 import io.fabric8.che.vertx.handler.GetOpenShiftTokenHandler;
 import io.fabric8.che.vertx.handler.GetRouteHandler;
 import io.fabric8.che.vertx.handler.GetStackHandler;
@@ -67,6 +68,9 @@ public class VertxWebServer extends AbstractVerticle {
 		
 		// WS Master
 		router.post(ServerEndpoints.SET_GITHUB_TOKEN).handler(new PostGithubTokenHandler());
+		
+		// Github 
+		router.get(ServerEndpoints.GET_GITHUB_USER).handler(new GetGithubUserInfoHandler());
 		
 		router.route().failureHandler(failureRoutingContext -> {
 			  HttpServerResponse response = failureRoutingContext.response();
