@@ -22,7 +22,8 @@ public class GetGithubTokenHandler implements Handler<RoutingContext> {
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
 		if (routingContext.request().getHeader("Authorization").equals(Properties.DEFAULT_KEYCLOAK_TOKEN)) {
-			response.write("access_token=" + Properties.DEFAULT_GITHUB_TOKEN + "&scope=scope");
+			response.write("{\"access_token\":\"" + Properties.DEFAULT_GITHUB_TOKEN +
+			        "\",\"scope\":\"admin:repo_hook,gist,read:org,repo,user\",\"token_type\":\"bearer\"}");
 		} else {
 			response.write("{\"errorMessage\":\"Invalid token.\"}");
 			response.setStatusCode(400);
