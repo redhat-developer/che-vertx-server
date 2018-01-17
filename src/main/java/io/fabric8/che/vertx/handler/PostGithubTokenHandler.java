@@ -20,10 +20,8 @@ public class PostGithubTokenHandler  implements Handler<RoutingContext> {
 	public void handle(RoutingContext routingContext) {
 		HttpServerResponse response = routingContext.response();
 		response.putHeader("Content-Type", "application/json").setChunked(true);
-		String provider = routingContext.request().getParam("oauth_provider");
-		if (provider == null || !provider.equals("github")) {
-			response.setStatusCode(400);
-		}
+		// No need to do anything more
+		response.write("");
 		response.end();
 	}
 }
