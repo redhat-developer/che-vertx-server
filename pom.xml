@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.fabric8.che</groupId>
 	<artifactId>che-vertx-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.7</version>
 
 	<properties>
 		<vertx.version>3.3.3</vertx.version>
@@ -73,7 +73,7 @@
 									<resource>META-INF/services/io.vertx.core.spi.VerticleFactory</resource>
 								</transformer>
 							</transformers>
-							<outputFile>${project.build.directory}/vertx-server.jar</outputFile>
+							<outputFile>${project.build.directory}/vertx-server-v${version}.jar</outputFile>
 						</configuration>
 					</execution>
 				</executions>
