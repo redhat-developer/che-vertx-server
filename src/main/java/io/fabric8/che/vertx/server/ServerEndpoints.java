@@ -26,8 +26,8 @@ public class ServerEndpoints {
 	public static final String CREATE_WORKSPACE = "/api/chevertxwsid13/wsagent/project/batch";
 	
 	// WS master
-	public static final String SET_GITHUB_TOKEN = "/wsmaster/api/token/github";
-	public static final String WS_MASTER_PREFERENCES = "/wsmaster/api/preferences";
+	public static final String SET_GITHUB_TOKEN = "/api/token/github";
+	public static final String WS_MASTER_PREFERENCES = "/api/preferences";
 			
 	// OpenShift endpoints
 	public static final String OPENSHIFT_ROUTE = "/oapi/v1/namespaces/" + Properties.DEFAULT_OPENSHIFT_PROJECT
